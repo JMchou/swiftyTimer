@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BBA6994246248BB0081181E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA6993246248BB0081181E /* AppDelegate.swift */; };
+		4BBA6996246248BB0081181E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA6995246248BB0081181E /* SceneDelegate.swift */; };
+		4BBA6998246248BB0081181E /* SwiftyTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA6997246248BB0081181E /* SwiftyTimerViewController.swift */; };
+		4BBA699B246248BB0081181E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA6999246248BB0081181E /* Main.storyboard */; };
+		4BBA699D246248BC0081181E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA699C246248BC0081181E /* Assets.xcassets */; };
+		4BBA69A0246248BC0081181E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA699E246248BC0081181E /* LaunchScreen.storyboard */; };
+		4BBA69A924624A070081181E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69A824624A070081181E /* Activity.swift */; };
+		4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */; };
+		4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AE246373B60081181E /* TimerViewController.swift */; };
+		4BBA69B124639D0B0081181E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA69B024639D0B0081181E /* Colors.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4BBA6990246248BB0081181E /* SwiftyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BBA6993246248BB0081181E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4BBA6995246248BB0081181E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4BBA6997246248BB0081181E /* SwiftyTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyTimerViewController.swift; sourceTree = "<group>"; };
+		4BBA699A246248BB0081181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4BBA699C246248BC0081181E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BBA699F246248BC0081181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4BBA69A1246248BC0081181E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BBA69A824624A070081181E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyTimerCell.swift; sourceTree = "<group>"; };
+		4BBA69AE246373B60081181E /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		4BBA69B024639D0B0081181E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = View/Colors.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BBA698D246248BB0081181E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BBA6987246248BB0081181E = {
+			isa = PBXGroup;
+			children = (
+				4BBA6992246248BB0081181E /* SwiftyTimer */,
+				4BBA6991246248BB0081181E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BBA6991246248BB0081181E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BBA6990246248BB0081181E /* SwiftyTimer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BBA6992246248BB0081181E /* SwiftyTimer */ = {
+			isa = PBXGroup;
+			children = (
+				4BBA6993246248BB0081181E /* AppDelegate.swift */,
+				4BBA6995246248BB0081181E /* SceneDelegate.swift */,
+				4BBA69AA24624A0B0081181E /* Model */,
+				4BBA69A7246249FA0081181E /* Controller */,
+				4BBA69AD2463733E0081181E /* View */,
+				4BBA699C246248BC0081181E /* Assets.xcassets */,
+				4BBA69B024639D0B0081181E /* Colors.xcassets */,
+				4BBA699E246248BC0081181E /* LaunchScreen.storyboard */,
+				4BBA69A1246248BC0081181E /* Info.plist */,
+			);
+			path = SwiftyTimer;
+			sourceTree = "<group>";
+		};
+		4BBA69A7246249FA0081181E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BBA6997246248BB0081181E /* SwiftyTimerViewController.swift */,
+				4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */,
+				4BBA69AE246373B60081181E /* TimerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BBA69AA24624A0B0081181E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BBA69A824624A070081181E /* Activity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BBA69AD2463733E0081181E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BBA6999246248BB0081181E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BBA698F246248BB0081181E /* SwiftyTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BBA69A4246248BC0081181E /* Build configuration list for PBXNativeTarget "SwiftyTimer" */;
+			buildPhases = (
+				4BBA698C246248BB0081181E /* Sources */,
+				4BBA698D246248BB0081181E /* Frameworks */,
+				4BBA698E246248BB0081181E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyTimer;
+			productName = SwiftyTimer;
+			productReference = 4BBA6990246248BB0081181E /* SwiftyTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BBA6988246248BB0081181E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Jiaming Zhou";
+				TargetAttributes = {
+					4BBA698F246248BB0081181E = {
+						CreatedOnToolsVersion = 11.4;
+					};
+				};
+			};
+			buildConfigurationList = 4BBA698B246248BB0081181E /* Build configuration list for PBXProject "SwiftyTimer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BBA6987246248BB0081181E;
+			productRefGroup = 4BBA6991246248BB0081181E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BBA698F246248BB0081181E /* SwiftyTimer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BBA698E246248BB0081181E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BBA69A0246248BC0081181E /* LaunchScreen.storyboard in Resources */,
+				4BBA69B124639D0B0081181E /* Colors.xcassets in Resources */,
+				4BBA699D246248BC0081181E /* Assets.xcassets in Resources */,
+				4BBA699B246248BB0081181E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BBA698C246248BB0081181E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BBA6998246248BB0081181E /* SwiftyTimerViewController.swift in Sources */,
+				4BBA6994246248BB0081181E /* AppDelegate.swift in Sources */,
+				4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */,
+				4BBA69A924624A070081181E /* Activity.swift in Sources */,
+				4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */,
+				4BBA6996246248BB0081181E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4BBA6999246248BB0081181E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BBA699A246248BB0081181E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4BBA699E246248BC0081181E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BBA699F246248BC0081181E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4BBA69A2246248BC0081181E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4BBA69A3246248BC0081181E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4BBA69A5246248BC0081181E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T84VHY5G4;
+				INFOPLIST_FILE = SwiftyTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BBA69A6246248BC0081181E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T84VHY5G4;
+				INFOPLIST_FILE = SwiftyTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BBA698B246248BB0081181E /* Build configuration list for PBXProject "SwiftyTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BBA69A2246248BC0081181E /* Debug */,
+				4BBA69A3246248BC0081181E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BBA69A4246248BC0081181E /* Build configuration list for PBXNativeTarget "SwiftyTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BBA69A5246248BC0081181E /* Debug */,
+				4BBA69A6246248BC0081181E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BBA6988246248BB0081181E /* Project object */;
+}

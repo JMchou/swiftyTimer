@@ -17,6 +17,7 @@
 		4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */; };
 		4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AE246373B60081181E /* TimerViewController.swift */; };
 		4BBA69B124639D0B0081181E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA69B024639D0B0081181E /* Colors.xcassets */; };
+		4BD9C0F124721C9C00C266BC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD9C0F024721C9C00C266BC /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyTimerCell.swift; sourceTree = "<group>"; };
 		4BBA69AE246373B60081181E /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		4BBA69B024639D0B0081181E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = View/Colors.xcassets; sourceTree = "<group>"; };
+		4BD9C0F024721C9C00C266BC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				4BBA69A824624A070081181E /* Activity.swift */,
+				4BD9C0F024721C9C00C266BC /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */,
 				4BBA69A924624A070081181E /* Activity.swift in Sources */,
 				4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */,
+				4BD9C0F124721C9C00C266BC /* Task.swift in Sources */,
 				4BBA6996246248BB0081181E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

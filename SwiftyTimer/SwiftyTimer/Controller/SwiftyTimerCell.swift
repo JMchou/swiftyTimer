@@ -23,3 +23,4 @@ class SwiftyTimerCell: UICollectionViewCell {
         }
     }
 }
+

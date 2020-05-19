@@ -15,7 +15,6 @@ class SwiftyTimerViewController: UICollectionViewController {
     private let cellIdentifier = "ItemCell"
     
     private var cellWidth: CGFloat?
-    
     private var activities: [Activity] = []
 
     override func viewDidLoad() {
@@ -24,7 +23,7 @@ class SwiftyTimerViewController: UICollectionViewController {
         title = "SwiftyTimer"
         
         for position in 0...3 {
-            let newActivity = Activity(name: "item \(position)", duration: 10, color: "green")
+            let newActivity = Activity(name: "item \(position)", duration: 60, color: "green")
             activities.append(newActivity)
         }
     }

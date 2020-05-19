@@ -21,11 +21,7 @@ class TimerViewController: UIViewController {
     private weak var timer: Timer?
     private weak var soundTimer: Timer?
     private var timePassed = -1
-    private enum status {
-        case ongoing
-        case paused
-        case completed
-    }
+    
     private enum buttonImage {
         case cancelButton
         case pauseButton
@@ -33,8 +29,9 @@ class TimerViewController: UIViewController {
         case muteButton
         case repeatButton
     }
-    private var state = status.ongoing
+    
     var activity: Activity?
+    var task = Task(state: .ongoing, timeCreated: Date(timeIntervalSinceNow: 0))
     
     //MARK: - UI configurations
     
@@ -45,6 +42,11 @@ class TimerViewController: UIViewController {
             imageView.image = UIImage(named: activity.name)
             view.backgroundColor = UIColor(named: activity.color)
         }
+        
+        //Register notification
+        NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.willEnterForegroundNotification, object: nil)
+        
         //Start a timer that increments every second
         updateTimer()
         creatTimer()
@@ -54,14 +56,13 @@ class TimerViewController: UIViewController {
         timer?.invalidate()
         soundTimer?.invalidate()
     }
-    
     //MARK: - IBActions
     
     @IBAction func buttonsPressed(_ sender: UIButton) {
         
         switch sender.tag {
         case 0:
-            if state == status.completed {
+            if task.state == .completed {
                 leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.cancelButton)"), for: .normal)
                 leftButton.setTitle("Restart", for: .normal)
                 
@@ -71,22 +72,23 @@ class TimerViewController: UIViewController {
             timePassed = -1
             soundTimer?.invalidate()
             timer?.invalidate()
-            state = status.ongoing
+            task.updateState(with: .ongoing)
+            task.resetTime()
             creatTimer()
             updateTimer()
         case 1:
-            if state == status.ongoing {
+            if task.state == .ongoing {
                 timer?.invalidate()
                 timer = nil
-                state = status.paused
+                task.updateState(with: .paused)
                 sender.setBackgroundImage(UIImage(named: "\(buttonImage.resumeButton)"), for: .normal)
                 sender.setTitle("Resume", for: .normal)
-            } else if state == status.paused {
+            } else if task.state == .paused {
                 creatTimer()
-                state = status.ongoing
+                task.updateState(with: .ongoing)
                 sender.setBackgroundImage(UIImage(named: "\(buttonImage.pauseButton)"), for: .normal)
                 sender.setTitle("Pause", for: .normal)
-            } else if state == status.completed {
+            } else if task.state == .completed {
                 stopSound()
                 soundTimer?.invalidate()
             }
@@ -95,6 +97,38 @@ class TimerViewController: UIViewController {
         }
     }
 }
+
+
+//MARK: - Notification Methods
+
+extension TimerViewController {
+    
+    @objc func becomeInactive() {
+        //schedule local notification
+        print("I've become inactive")
+    }
+    
+    @objc func becomesActive() {
+        //cancel local notification
+        print("I've become active")
+        //Resume since the time that has passed.
+        
+        let timeInterval = task.timeCreated.timeIntervalSinceNow
+        let roundedDate = ceil(timeInterval)
+        let dateAsInt = Int(roundedDate) * -1
+        
+        
+        if let activity = activity {
+            if dateAsInt <  activity.duration {
+                timePassed = (dateAsInt - 1)
+                updateTimer()
+            }
+        }
+    }
+    
+    
+}
+
 
 //MARK: - Timer
 
@@ -123,7 +157,7 @@ extension TimerViewController {
             
             if timePassed == activity.duration {
                 self.timer?.invalidate()
-                state = status.completed
+                task.updateState(with: .completed)
                 
                 leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.repeatButton)"), for: .normal)
                 leftButton.setTitle("Repeat", for: .normal)
@@ -173,17 +207,5 @@ extension TimerViewController {
     func stopSound() {
         AudioServicesDisposeSystemSoundID(1304)
     }
-    
-    //    func playAnimation() {
-    //
-    //        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-    //            self.imageView.transform = CGAffineTransform(rotationAngle: .pi/8)
-    //        }) { (finished) in
-    //            UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-    //                self.imageView.transform = CGAffineTransform(rotationAngle: -(.pi/8))
-    //            }) { (finished) in
-    //                self.imageView.transform = CGAffineTransform.identity
-    //            }
-    //        }
-    //    }
 }
+

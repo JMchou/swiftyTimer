@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import UserNotifications
 
 class TimerViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class TimerViewController: UIViewController {
     private weak var timer: Timer?
     private weak var soundTimer: Timer?
     private var timePassed = -1
+    private let notificationIdentifier = UUID().uuidString
     
     private enum buttonImage {
         case cancelButton
@@ -105,28 +107,47 @@ extension TimerViewController {
     
     @objc func becomeInactive() {
         //schedule local notification
-        print("I've become inactive")
+        guard let activity = activity else {
+            return
+        }
+
+        let content = UNMutableNotificationContent()
+
+        content.title = "Time's UP!"
+        content.body = "You have completed your exercise."
+        content.sound = UNNotificationSound.default
+        // show this notification five seconds from now
+        let remainingTime = Double(activity.duration - timePassed)
+        print(remainingTime)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: remainingTime, repeats: false)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
     }
     
     @objc func becomesActive() {
         //cancel local notification
-        print("I've become active")
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
+        
         //Resume since the time that has passed.
         
         let timeInterval = task.timeCreated.timeIntervalSinceNow
         let roundedDate = ceil(timeInterval)
         let dateAsInt = Int(roundedDate) * -1
         
-        
         if let activity = activity {
             if dateAsInt <  activity.duration {
                 timePassed = (dateAsInt - 1)
                 updateTimer()
+            } else {
+                timePassed = (activity.duration - 1)
+                updateTimer()
             }
         }
     }
-    
-    
 }
 
 
@@ -140,7 +161,6 @@ extension TimerViewController {
         }
         RunLoop.current.add(timer, forMode: .common)
         self.timer = timer
-        
     }
     
     func creatSoundTimer() {

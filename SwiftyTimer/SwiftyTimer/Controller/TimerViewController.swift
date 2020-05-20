@@ -20,7 +20,7 @@ class TimerViewController: UIViewController {
     
     //MARK: - Variables and properties
     private weak var timer: Timer?
-    private weak var soundTimer: Timer?
+    private var audioPlayer: AVAudioPlayer?
     private var timePassed = -1
     private let notificationIdentifier = UUID().uuidString
     
@@ -56,7 +56,6 @@ class TimerViewController: UIViewController {
     
     deinit {
         timer?.invalidate()
-        soundTimer?.invalidate()
     }
     //MARK: - IBActions
     
@@ -72,7 +71,6 @@ class TimerViewController: UIViewController {
                 rightButton.setTitle("Pause", for: .normal)
             }
             timePassed = -1
-            soundTimer?.invalidate()
             timer?.invalidate()
             task.updateState(with: .ongoing)
             task.resetTime()
@@ -92,7 +90,7 @@ class TimerViewController: UIViewController {
                 sender.setTitle("Pause", for: .normal)
             } else if task.state == .completed {
                 stopSound()
-                soundTimer?.invalidate()
+//                soundTimer?.invalidate()
             }
         default:
             return
@@ -107,23 +105,21 @@ extension TimerViewController {
     
     @objc func becomeInactive() {
         //schedule local notification
+        timer?.invalidate()
+        
         guard let activity = activity else {
             return
         }
 
         let content = UNMutableNotificationContent()
-
         content.title = "Time's UP!"
         content.body = "You have completed your exercise."
-        content.sound = UNNotificationSound.default
-        // show this notification five seconds from now
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "Alarm.wav"))
+        
         let remainingTime = Double(activity.duration - timePassed)
-        print(remainingTime)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: remainingTime, repeats: false)
-
-        // choose a random identifier
         let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
-
+        
         // add our notification request
         UNUserNotificationCenter.current().add(request)
     }
@@ -132,8 +128,7 @@ extension TimerViewController {
         //cancel local notification
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
         
-        //Resume since the time that has passed.
-        
+        //Resume timer
         let timeInterval = task.timeCreated.timeIntervalSinceNow
         let roundedDate = ceil(timeInterval)
         let dateAsInt = Int(roundedDate) * -1
@@ -142,8 +137,10 @@ extension TimerViewController {
             if dateAsInt <  activity.duration {
                 timePassed = (dateAsInt - 1)
                 updateTimer()
+                creatTimer()
             } else {
                 timePassed = (activity.duration - 1)
+                task.updateState(with: .completed)
                 updateTimer()
             }
         }
@@ -163,19 +160,11 @@ extension TimerViewController {
         self.timer = timer
     }
     
-    func creatSoundTimer() {
-        let soundTimer = Timer(timeInterval: 3, repeats: true) { [weak self] (timer) in
-            self?.playSound()
-        }
-        RunLoop.current.add(soundTimer, forMode: .common)
-        self.soundTimer = soundTimer
-    }
-    
     func updateTimer() {
         if let activity = activity {
             timePassed += 1
             
-            if timePassed == activity.duration {
+            if timePassed == activity.duration && task.state != .completed {
                 self.timer?.invalidate()
                 task.updateState(with: .completed)
                 
@@ -186,7 +175,6 @@ extension TimerViewController {
                 rightButton.setTitle("Mute", for: .normal)
                 
                 playSound()
-                creatSoundTimer()
             }
             
             let currentTime = activity.duration - timePassed
@@ -220,12 +208,20 @@ extension TimerViewController {
 extension TimerViewController {
     
     func playSound() {
-        let systemSoundID: SystemSoundID =  1304
-        AudioServicesPlaySystemSound(systemSoundID)
+        let path = Bundle.main.path(forResource: "Alarm.wav", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.play()
+        } catch {
+            print("Could not find sound file.")
+        }
     }
     
     func stopSound() {
-        AudioServicesDisposeSystemSoundID(1304)
+        audioPlayer?.stop()
     }
 }
 

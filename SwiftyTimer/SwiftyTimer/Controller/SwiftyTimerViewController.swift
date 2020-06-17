@@ -11,22 +11,32 @@ import UserNotifications
 
 class SwiftyTimerViewController: UICollectionViewController {
     
-    private let numberOfItemPerRow:CGFloat = 2
+    private let numberOfItemPerRow: CGFloat = 2
     private let cellInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     private let cellIdentifier = "ItemCell"
+    private let creationViewIdentifier = "CreationViewController"
     
     private var cellWidth: CGFloat?
     private var activities: [Activity] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "SwiftyTimer"
+        self.title = "SwiftyTimers"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.darkGray
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationItem.standardAppearance = appearance
+
         
         for position in 0...3 {
             let newActivity = Activity(name: "item \(position)", duration: 10, color: "green")
             activities.append(newActivity)
         }
+        
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentCreationScreen))
+        navigationItem.rightBarButtonItem = rightButton
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
@@ -35,7 +45,21 @@ class SwiftyTimerViewController: UICollectionViewController {
         }
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let barAppearance = UINavigationBarAppearance()
+        barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    @objc func presentCreationScreen() {
+        //present creationviewcontroller
+        if let creationVC = storyboard?.instantiateViewController(withIdentifier: creationViewIdentifier) as? CreationViewController {
+            navigationController?.pushViewController(creationVC, animated: true)
+        }
+    }
+    
+    
 }
 
 //MARK: - CollectionView Delegate and DataSource methods

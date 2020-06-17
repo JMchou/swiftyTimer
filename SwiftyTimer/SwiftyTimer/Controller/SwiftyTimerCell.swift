@@ -20,6 +20,8 @@ class SwiftyTimerCell: UICollectionViewCell {
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.widthAnchor.constraint(equalToConstant: cellWidth/2).isActive = true
             imageView.heightAnchor.constraint(equalToConstant: cellWidth/2).isActive = true
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         }
     }
 }

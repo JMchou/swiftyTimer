@@ -42,10 +42,43 @@ class CreationViewController: UIViewController {
         configureViews()
     }
     
+    //MARK: - IBActions
+    
+    
+    @IBAction func iconPressed(_ sender: UIButton) {
+        /*
+         Present a view controller that displays all the availble
+         icons for the user to choose.
+         */
+        
+        if let selectionViewController = storyboard?.instantiateViewController(identifier: "SelectionMenuCollectionViewController") as? SelectionMenuCollectionViewController {
+            
+            selectionViewController.isIcon = true
+            selectionViewController.delegate = self
+            present(selectionViewController, animated: true)
+        }
+    }
+    
+    
+    @IBAction func colorButtonPressed(_ sender: UIButton) {
+        
+        //Similar to iconPressed, but it displays all the available colors instead
+        if let selectionViewController = storyboard?.instantiateViewController(identifier: "SelectionMenuCollectionViewController") as? SelectionMenuCollectionViewController {
+            
+            selectionViewController.isIcon = false
+            selectionViewController.delegate = self
+            present(selectionViewController, animated: true)
+        }
+    }
+    
+    //MARK: - Selector functions
+    
     @objc private func finishedAddingItem() {
         //Persist new item to local storage.
         
     }
+    
+    //Move the view up and down depending on the keyboard's hidden status
     
     @objc private func moveViewUp(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
@@ -62,7 +95,6 @@ class CreationViewController: UIViewController {
     @objc private func moveViewBack(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
-    
 }
 
 //MARK: - PickerView delegate and datasource methods
@@ -208,5 +240,14 @@ extension CreationViewController {
         
         NSLayoutConstraint.activate(layoutConstraints)
         
+    }
+}
+
+//MARK: - SelectionMenuCollectionView delegate methods
+
+extension CreationViewController: SelectionMenuCollectionViewControllerDelegate {
+    
+    func didSelect(_ object: String) {
+        print(object)
     }
 }

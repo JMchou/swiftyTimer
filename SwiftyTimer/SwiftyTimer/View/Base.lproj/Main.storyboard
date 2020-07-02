@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rck-Ko-qQo">
-    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,7 +14,7 @@
             <objects>
                 <collectionViewController id="OOR-is-iFM" customClass="SwiftyTimerViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="t1t-hK-0f8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ewf-3J-z3Y">
@@ -25,7 +25,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="Mz2-x2-wRx" customClass="SwiftyTimerCell" customModule="SwiftyTimer" customModuleProvider="target">
-                                <rect key="frame" x="-12.666666666666666" y="0.0" width="400" height="400"/>
+                                <rect key="frame" x="7" y="0.0" width="400" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HFi-dc-Qgb">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
@@ -59,27 +59,26 @@
             <objects>
                 <viewController storyboardIdentifier="TimerViewController" id="kk1-vy-eov" customClass="TimerViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htV-8A-Mm6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-Sn-7iM">
-                                <rect key="frame" x="43" y="172" width="289" height="224"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-83-FpV">
-                                <rect key="frame" x="69.666666666666686" y="495" width="236" height="49"/>
+                                <rect key="frame" x="149" y="525" width="116" height="68"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="ZhA-9h-p54"/>
-                                    <constraint firstAttribute="width" constant="236" id="hWD-SN-hPZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="Nia-Vz-myb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-yA-OrV">
-                                <rect key="frame" x="83" y="636" width="209" height="84"/>
+                                <rect key="frame" x="57.5" y="673" width="299" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-bP-4Sa">
-                                        <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="129"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="HLD-bP-4Sa" secondAttribute="height" multiplier="1:1" id="98m-cU-HAg"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
                                         <state key="normal" title="Restart" backgroundImage="cancelButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,7 +88,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K3-aQ-VDD">
-                                        <rect key="frame" x="125" y="0.0" width="84" height="84"/>
+                                        <rect key="frame" x="170" y="0.0" width="129" height="129"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3K3-aQ-VDD" secondAttribute="height" multiplier="1:1" id="SzR-h7-7Yl"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
                                         <state key="normal" title="Pause" backgroundImage="pauseButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,17 +102,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-Sn-7iM">
+                                <rect key="frame" x="75" y="107" width="264" height="264"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DtF-Sn-7iM" secondAttribute="height" multiplier="1:1" id="nhH-pA-XzP"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="KCS-x0-Drl"/>
-                            <constraint firstItem="a4T-yA-OrV" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="Oev-7d-j8O"/>
-                            <constraint firstItem="dEk-83-FpV" firstAttribute="top" secondItem="DtF-Sn-7iM" secondAttribute="bottom" constant="99" id="PLU-h3-nRy"/>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="leading" secondItem="4BR-fY-OcM" secondAttribute="leading" constant="43" id="dhp-E1-VmO"/>
-                            <constraint firstItem="4BR-fY-OcM" firstAttribute="bottom" secondItem="dEk-83-FpV" secondAttribute="bottom" constant="234" id="hmf-F0-VuX"/>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="centerX" secondItem="dEk-83-FpV" secondAttribute="centerX" id="q9u-UB-a8Y"/>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="top" secondItem="4BR-fY-OcM" secondAttribute="top" constant="128" id="x6d-6f-j18"/>
-                            <constraint firstItem="a4T-yA-OrV" firstAttribute="top" secondItem="dEk-83-FpV" secondAttribute="bottom" constant="92" id="zya-Zc-W46"/>
+                            <constraint firstItem="a4T-yA-OrV" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="1gC-q5-K72"/>
+                            <constraint firstItem="4BR-fY-OcM" firstAttribute="trailing" secondItem="DtF-Sn-7iM" secondAttribute="trailing" constant="75" id="9ZD-Dd-ekf"/>
+                            <constraint firstItem="dEk-83-FpV" firstAttribute="top" relation="lessThanOrEqual" secondItem="DtF-Sn-7iM" secondAttribute="bottom" constant="154" id="CIY-4m-pej"/>
+                            <constraint firstItem="dEk-83-FpV" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="NZC-98-fuU"/>
+                            <constraint firstItem="4BR-fY-OcM" firstAttribute="bottom" secondItem="a4T-yA-OrV" secondAttribute="bottom" constant="60" id="T72-Fj-eBa"/>
+                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="leading" secondItem="4BR-fY-OcM" secondAttribute="leading" constant="75" id="Wcu-3Y-e6d"/>
+                            <constraint firstItem="a4T-yA-OrV" firstAttribute="top" secondItem="dEk-83-FpV" secondAttribute="bottom" constant="80" id="XmU-tS-0si"/>
+                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="top" relation="lessThanOrEqual" secondItem="4BR-fY-OcM" secondAttribute="top" constant="63" id="iIK-C3-072"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4BR-fY-OcM"/>
                     </view>
@@ -123,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRq-Ow-OKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1644.9275362318842" y="-299.33035714285711"/>
+            <point key="canvasLocation" x="1644" y="-300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="chI-nH-P40">
@@ -131,7 +139,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rck-Ko-qQo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8mt-Nk-y00">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.60348886986301364" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.17254901960784313" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,11 +164,11 @@
             <objects>
                 <viewController storyboardIdentifier="CreationViewController" id="AR2-k8-Ofs" customClass="CreationViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MSW-qy-1p4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 hrs : 00 min : 00 sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-cl-D0W">
-                                <rect key="frame" x="28" y="446" width="197" height="55"/>
+                                <rect key="frame" x="28" y="485" width="236" height="55"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="FxX-bn-s4t"/>
@@ -170,18 +178,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFP-AE-NQA">
-                                <rect key="frame" x="88" y="109" width="199" height="199"/>
+                                <rect key="frame" x="88" y="109" width="238" height="238"/>
                                 <color key="backgroundColor" red="0.031300220638513565" green="0.47064077854156494" blue="0.97461181879043579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bFP-AE-NQA" secondAttribute="height" multiplier="1:1" id="maM-L8-6gG"/>
                                 </constraints>
-                                <state key="normal" image="item 2"/>
+                                <state key="normal" image="Object 12"/>
                                 <connections>
                                     <action selector="iconPressed:" destination="AR2-k8-Ofs" eventType="touchUpInside" id="M45-JY-YpB"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Name of the activity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6Q-YE-gRL" customClass="UITextFieldPadding" customModule="SwiftyTimer" customModuleProvider="target">
-                                <rect key="frame" x="28" y="374" width="319" height="55"/>
+                                <rect key="frame" x="28" y="413" width="358" height="55"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="DQq-Mx-YQc"/>
@@ -191,7 +199,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o65-Ki-Ulb">
-                                <rect key="frame" x="239" y="446" width="108" height="55"/>
+                                <rect key="frame" x="278" y="485" width="108" height="55"/>
                                 <color key="backgroundColor" name="Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="108" id="4aN-bg-nnL"/>
@@ -201,7 +209,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz9-PH-Nw2">
-                                <rect key="frame" x="28" y="522" width="319" height="216"/>
+                                <rect key="frame" x="28" y="561" width="358" height="261"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
                         </subviews>
@@ -243,7 +251,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="SelectionMenuCollectionViewController" id="f0g-R1-nwO" customClass="SelectionMenuCollectionViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Gf5-yC-bFo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="60Y-U7-EEW">
@@ -291,8 +299,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Object 12" width="278" height="244"/>
         <image name="cancelButton" width="84" height="84"/>
-        <image name="item 2" width="129" height="168"/>
         <image name="pauseButton" width="84" height="84"/>
         <namedColor name="Blue">
             <color red="0.29803921568627451" green="0.35686274509803922" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

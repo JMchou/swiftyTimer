@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,12 +17,14 @@
 		4BBA699B246248BB0081181E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA6999246248BB0081181E /* Main.storyboard */; };
 		4BBA699D246248BC0081181E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA699C246248BC0081181E /* Assets.xcassets */; };
 		4BBA69A0246248BC0081181E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA699E246248BC0081181E /* LaunchScreen.storyboard */; };
-		4BBA69A924624A070081181E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69A824624A070081181E /* Activity.swift */; };
 		4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */; };
 		4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AE246373B60081181E /* TimerViewController.swift */; };
 		4BBA69B124639D0B0081181E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA69B024639D0B0081181E /* Colors.xcassets */; };
+		4BC95A4524A49D180051F0C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC95A4424A49D180051F0C8 /* Item.swift */; };
+		4BC95A4724A49D400051F0C8 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC95A4624A49D400051F0C8 /* ItemManager.swift */; };
 		4BD9C0F124721C9C00C266BC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD9C0F024721C9C00C266BC /* Task.swift */; };
 		4BFB2C9A2475181400B031FC /* Alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB2C992475181400B031FC /* Alarm.wav */; };
+		8EC5FB006349BA128BF7E325 /* Pods_SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7622B89918AC79D2B5A327 /* Pods_SwiftyTimer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +40,16 @@
 		4BBA699C246248BC0081181E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BBA699F246248BC0081181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BBA69A1246248BC0081181E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BBA69A824624A070081181E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyTimerCell.swift; sourceTree = "<group>"; };
 		4BBA69AE246373B60081181E /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		4BBA69B024639D0B0081181E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = View/Colors.xcassets; sourceTree = "<group>"; };
+		4BC95A4424A49D180051F0C8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4BC95A4624A49D400051F0C8 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		4BD9C0F024721C9C00C266BC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4BFB2C992475181400B031FC /* Alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Alarm.wav; sourceTree = "<group>"; };
+		7F7622B89918AC79D2B5A327 /* Pods_SwiftyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D5D6CD3DF877C1E7D93EAF /* Pods-SwiftyTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyTimer.release.xcconfig"; path = "Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer.release.xcconfig"; sourceTree = "<group>"; };
+		C3BE9D960B776A6EBBA2A8A7 /* Pods-SwiftyTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyTimer.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +57,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC5FB006349BA128BF7E325 /* Pods_SwiftyTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		175B377726A439C468954849 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F7622B89918AC79D2B5A327 /* Pods_SwiftyTimer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4BBA6987246248BB0081181E = {
 			isa = PBXGroup;
 			children = (
 				4BBA6992246248BB0081181E /* SwiftyTimer */,
 				4BBA6991246248BB0081181E /* Products */,
+				838A3A1664FA298DBE58AC89 /* Pods */,
+				175B377726A439C468954849 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +122,9 @@
 		4BBA69AA24624A0B0081181E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4BBA69A824624A070081181E /* Activity.swift */,
 				4BD9C0F024721C9C00C266BC /* Task.swift */,
+				4BC95A4424A49D180051F0C8 /* Item.swift */,
+				4BC95A4624A49D400051F0C8 /* ItemManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +147,15 @@
 			path = sounds;
 			sourceTree = "<group>";
 		};
+		838A3A1664FA298DBE58AC89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE9D960B776A6EBBA2A8A7 /* Pods-SwiftyTimer.debug.xcconfig */,
+				90D5D6CD3DF877C1E7D93EAF /* Pods-SwiftyTimer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BBA69A4246248BC0081181E /* Build configuration list for PBXNativeTarget "SwiftyTimer" */;
 			buildPhases = (
+				C2619FC5FE9BACAB0FA2C358 /* [CP] Check Pods Manifest.lock */,
 				4BBA698C246248BB0081181E /* Sources */,
 				4BBA698D246248BB0081181E /* Frameworks */,
 				4BBA698E246248BB0081181E /* Resources */,
+				C92B77825A40C380C95C0AA6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +226,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C2619FC5FE9BACAB0FA2C358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyTimer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C92B77825A40C380C95C0AA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BBA698C246248BB0081181E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -206,8 +277,9 @@
 				4BBA6998246248BB0081181E /* SwiftyTimerViewController.swift in Sources */,
 				4BBA6994246248BB0081181E /* AppDelegate.swift in Sources */,
 				4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */,
+				4BC95A4524A49D180051F0C8 /* Item.swift in Sources */,
 				4B35946A248881060028E9E9 /* CreationViewController.swift in Sources */,
-				4BBA69A924624A070081181E /* Activity.swift in Sources */,
+				4BC95A4724A49D400051F0C8 /* ItemManager.swift in Sources */,
 				4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */,
 				4B35947024A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift in Sources */,
 				4BD9C0F124721C9C00C266BC /* Task.swift in Sources */,
@@ -354,6 +426,7 @@
 		};
 		4BBA69A5246248BC0081181E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3BE9D960B776A6EBBA2A8A7 /* Pods-SwiftyTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,12 +440,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4BBA69A6246248BC0081181E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90D5D6CD3DF877C1E7D93EAF /* Pods-SwiftyTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -386,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CreationViewController: UIViewController {
     
@@ -20,6 +21,10 @@ class CreationViewController: UIViewController {
     private var hours: String = "00"
     private var minutes: String = "00"
     private var seconds: String = "00"
+    private var activityColor: String?
+    private var activityIcon: String?
+    private let itemManager = ItemManager.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +80,23 @@ class CreationViewController: UIViewController {
     
     @objc private func finishedAddingItem() {
         //Persist new item to local storage.
+        let duration = convertStringToIntDuraction()
+        guard duration > 0 else { return }
+        guard let name = nameTextField.text else { return }
+        guard let color = activityColor else { return }
+        guard let icon = activityIcon else { return }
         
+        itemManager.createItem(name: name, iconName: icon, duration: duration, Color: color)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func convertStringToIntDuraction() -> Int {
+        let secInInt = Int(seconds) ?? 0
+        let minInInt = Int(minutes) ?? 0
+        let hrsInInt = Int(hours) ?? 0
+        
+        let totalDuration = (secInInt) + (minInInt * 60) + (hrsInInt * 3600)
+        return totalDuration
     }
     
     //Move the view up and down depending on the keyboard's hidden status
@@ -247,7 +268,15 @@ extension CreationViewController {
 
 extension CreationViewController: SelectionMenuCollectionViewControllerDelegate {
     
-    func didSelect(_ object: String) {
-        print(object)
+    func didSelect(_ isIconView: Bool, _ object: String) {
+        
+        if isIconView {
+            iconView.setImage(UIImage(named: object), for: .normal)
+            activityIcon = object
+        } else {
+            colorButton.backgroundColor = UIColor.init(named: object)
+            iconView.backgroundColor = UIColor.init(named: object)
+            activityColor = object
+        }
     }
 }

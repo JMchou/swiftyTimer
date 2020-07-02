@@ -63,9 +63,9 @@ class SelectionMenuCollectionViewController: UICollectionViewController {
         let index = indexPath.row
         
         if isIcon {
-            delegate?.didSelect("Object \(index + 1)")
+            delegate?.didSelect(true ,"Object \(index + 1)")
         } else {
-            delegate?.didSelect(colorNames[index])
+            delegate?.didSelect(false, colorNames[index])
         }
         
         dismiss(animated: true, completion: nil)
@@ -99,5 +99,5 @@ extension SelectionMenuCollectionViewController: UICollectionViewDelegateFlowLay
 
 protocol SelectionMenuCollectionViewControllerDelegate {
     
-    func didSelect(_ object: String)
+    func didSelect(_ isIconView: Bool, _ object: String)
 }

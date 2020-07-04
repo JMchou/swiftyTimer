@@ -32,7 +32,7 @@ class TimerViewController: UIViewController {
         case repeatButton
     }
     
-    var activity: Activity?
+    var activity: Item?
     var task = Task(state: .ongoing, timeCreated: Date(timeIntervalSinceNow: 0))
     
     //MARK: - UI configurations
@@ -41,8 +41,8 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         
         if let activity = activity {
-            imageView.image = UIImage(named: activity.name)
-            view.backgroundColor = UIColor(named: activity.color)
+            imageView.image = UIImage(named: activity.iconName!)
+            view.backgroundColor = UIColor(named: activity.color!)
         }
         
         //Register notification

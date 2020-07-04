@@ -17,14 +17,21 @@ class CreationViewController: UIViewController {
     @IBOutlet var iconView: UIButton!
     @IBOutlet var nameTextField: UITextFieldPadding!
     @IBOutlet var colorButton: UIButton!
+    @IBOutlet var stackView: UIStackView!
     
     private var hours: String = "00"
     private var minutes: String = "00"
     private var seconds: String = "00"
-    private var activityColor: String?
+    private var activityColor: String = "Blue"
     private var activityIcon: String?
     private let itemManager = ItemManager.standard
     
+    override func viewDidLayoutSubviews() {
+
+       let iconSize = iconView.frame.size.width
+       iconView.layer.cornerRadius = iconSize/2
+               
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,10 +90,9 @@ class CreationViewController: UIViewController {
         let duration = convertStringToIntDuraction()
         guard duration > 0 else { return }
         guard let name = nameTextField.text else { return }
-        guard let color = activityColor else { return }
         guard let icon = activityIcon else { return }
         
-        itemManager.createItem(name: name, iconName: icon, duration: duration, Color: color)
+        itemManager.createItem(name: name, iconName: icon, duration: duration, Color: self.activityColor)
         navigationController?.popViewController(animated: true)
     }
     
@@ -107,8 +113,8 @@ class CreationViewController: UIViewController {
         }
         
         let visibleView = view.bounds.height - keyboardSize.height
-        if (durationView.frame.maxY > visibleView) {
-            let moveDistance = durationView.frame.maxY - visibleView + 10
+        if (stackView.frame.maxY > visibleView) {
+            let moveDistance = stackView.frame.maxY - visibleView + 10
             self.view.frame.origin.y = 0 - moveDistance
         }
     }
@@ -204,10 +210,6 @@ extension CreationViewController {
         colorButton.layer.masksToBounds = true
         colorButton.layer.cornerRadius = 10
         
-        iconView.layoutIfNeeded()
-        let iconSize = iconView.frame.size.width
-        iconView.layer.cornerRadius = iconSize/2
-        
         let labelView = UILabel()
         labelView.text = "min"
         labelView.textColor = .white
@@ -235,14 +237,14 @@ extension CreationViewController {
         switch widthSize {
         case  375.0:
             minOffset = (widthSize/100) * 29
-            hourOffset = (widthSize/100) * 54
+            hourOffset = (widthSize/100) * 53
             secOffset = (widthSize/100) * 1
-            heightOffset = -150.0
+            heightOffset = -pickerView.bounds.height * 0.43
         default:
             minOffset = (widthSize/100) * 31
-            hourOffset = (widthSize/100) * 56
+            hourOffset = (widthSize/100) * 55
             secOffset = (widthSize/100) * 2
-            heightOffset = -174.0
+            heightOffset = -pickerView.bounds.height * 0.43
         }
         
         let layoutConstraints: [NSLayoutConstraint] = [
@@ -250,13 +252,13 @@ extension CreationViewController {
             
             labelView.trailingAnchor.constraint(equalTo: self.pickerView.trailingAnchor,
                                                 constant: -minOffset),
-            labelView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: heightOffset),
+            labelView.bottomAnchor.constraint(equalTo: self.pickerView.bottomAnchor, constant: heightOffset),
             
             hourView.trailingAnchor.constraint(equalTo: self.pickerView.trailingAnchor, constant: -hourOffset),
-            hourView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: heightOffset),
+            hourView.bottomAnchor.constraint(equalTo: self.pickerView.bottomAnchor, constant: heightOffset),
             
             secView.trailingAnchor.constraint(equalTo: self.pickerView.trailingAnchor, constant: -secOffset),
-            secView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: heightOffset)
+            secView.bottomAnchor.constraint(equalTo: self.pickerView.bottomAnchor, constant: heightOffset)
         ]
         
         NSLayoutConstraint.activate(layoutConstraints)

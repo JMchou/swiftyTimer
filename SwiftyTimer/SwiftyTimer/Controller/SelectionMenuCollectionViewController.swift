@@ -16,7 +16,7 @@ class SelectionMenuCollectionViewController: UICollectionViewController {
     var delegate: SelectionMenuCollectionViewControllerDelegate?
     
     //properties
-    private let colorNames = ["Red", "Blue", "Green", "Lightgreen", "Red", "Cyan"]
+    private let colorNames = ["Red", "Blue", "Green", "LightGreen", "Red", "Cyan"]
     private let numberOfItemPerRow: CGFloat = 2
     private let cellInset = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
     
@@ -48,6 +48,7 @@ class SelectionMenuCollectionViewController: UICollectionViewController {
             cell.itemImageView.image = UIImage(named: "Object \(indexPath.row + 1)")
             } else {
                 cell.itemImageView.backgroundColor = UIColor.init(named: colorNames[indexPath.row])
+               
             }
             return cell
         } else {

@@ -11,9 +11,10 @@
 		4B35946C24946A9B0028E9E9 /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946B24946A9A0028E9E9 /* UITextFieldPadding.swift */; };
 		4B35946E24A408790028E9E9 /* SelectionMenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946D24A408790028E9E9 /* SelectionMenuCollectionViewController.swift */; };
 		4B35947024A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946F24A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift */; };
+		4BA379B524B294FD007592BC /* TimerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379B424B294FD007592BC /* TimerCollectionViewController.swift */; };
+		4BA379B724B3EC71007592BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379B624B3EC71007592BC /* SettingViewController.swift */; };
 		4BBA6994246248BB0081181E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA6993246248BB0081181E /* AppDelegate.swift */; };
 		4BBA6996246248BB0081181E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA6995246248BB0081181E /* SceneDelegate.swift */; };
-		4BBA6998246248BB0081181E /* SwiftyTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA6997246248BB0081181E /* SwiftyTimerViewController.swift */; };
 		4BBA699B246248BB0081181E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA6999246248BB0081181E /* Main.storyboard */; };
 		4BBA699D246248BC0081181E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA699C246248BC0081181E /* Assets.xcassets */; };
 		4BBA69A0246248BC0081181E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA699E246248BC0081181E /* LaunchScreen.storyboard */; };
@@ -32,10 +33,11 @@
 		4B35946B24946A9A0028E9E9 /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
 		4B35946D24A408790028E9E9 /* SelectionMenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenuCollectionViewController.swift; sourceTree = "<group>"; };
 		4B35946F24A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		4BA379B424B294FD007592BC /* TimerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCollectionViewController.swift; sourceTree = "<group>"; };
+		4BA379B624B3EC71007592BC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4BBA6990246248BB0081181E /* SwiftyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BBA6993246248BB0081181E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BBA6995246248BB0081181E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4BBA6997246248BB0081181E /* SwiftyTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyTimerViewController.swift; sourceTree = "<group>"; };
 		4BBA699A246248BB0081181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BBA699C246248BC0081181E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BBA699F246248BC0081181E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,11 +112,12 @@
 		4BBA69A7246249FA0081181E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4BBA6997246248BB0081181E /* SwiftyTimerViewController.swift */,
+				4BA379B424B294FD007592BC /* TimerCollectionViewController.swift */,
 				4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */,
 				4BBA69AE246373B60081181E /* TimerViewController.swift */,
 				4B359469248881060028E9E9 /* CreationViewController.swift */,
 				4B35946D24A408790028E9E9 /* SelectionMenuCollectionViewController.swift */,
+				4BA379B624B3EC71007592BC /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,14 +277,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B35946E24A408790028E9E9 /* SelectionMenuCollectionViewController.swift in Sources */,
-				4BBA6998246248BB0081181E /* SwiftyTimerViewController.swift in Sources */,
 				4BBA6994246248BB0081181E /* AppDelegate.swift in Sources */,
 				4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */,
+				4BA379B724B3EC71007592BC /* SettingViewController.swift in Sources */,
 				4BC95A4524A49D180051F0C8 /* Item.swift in Sources */,
 				4B35946A248881060028E9E9 /* CreationViewController.swift in Sources */,
 				4BC95A4724A49D400051F0C8 /* ItemManager.swift in Sources */,
 				4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */,
 				4B35947024A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift in Sources */,
+				4BA379B524B294FD007592BC /* TimerCollectionViewController.swift in Sources */,
 				4BD9C0F124721C9C00C266BC /* Task.swift in Sources */,
 				4B35946C24946A9B0028E9E9 /* UITextFieldPadding.swift in Sources */,
 				4BBA6996246248BB0081181E /* SceneDelegate.swift in Sources */,

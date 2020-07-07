@@ -25,11 +25,11 @@ class TimerViewController: UIViewController {
     private let notificationIdentifier = UUID().uuidString
     
     private enum buttonImage {
-        case cancelButton
-        case pauseButton
-        case resumeButton
-        case muteButton
-        case repeatButton
+        case CancelButton
+        case PauseButton
+        case ResumeButton
+        case MuteButton
+        case RepeatButton
     }
     
     var activity: Item?
@@ -64,11 +64,11 @@ class TimerViewController: UIViewController {
         switch sender.tag {
         case 0:
             if task.state == .completed {
-                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.cancelButton)"), for: .normal)
-                leftButton.setTitle("Restart", for: .normal)
+                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.CancelButton)"), for: .normal)
+                //leftButton.setTitle("Restart", for: .normal)
                 
-                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.pauseButton)"), for: .normal)
-                rightButton.setTitle("Pause", for: .normal)
+                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
+                //rightButton.setTitle("Pause", for: .normal)
             }
             timePassed = -1
             timer?.invalidate()
@@ -81,13 +81,13 @@ class TimerViewController: UIViewController {
                 timer?.invalidate()
                 timer = nil
                 task.updateState(with: .paused)
-                sender.setBackgroundImage(UIImage(named: "\(buttonImage.resumeButton)"), for: .normal)
-                sender.setTitle("Resume", for: .normal)
+                sender.setBackgroundImage(UIImage(named: "\(buttonImage.ResumeButton)"), for: .normal)
+                //sender.setTitle("Resume", for: .normal)
             } else if task.state == .paused {
                 creatTimer()
                 task.updateState(with: .ongoing)
-                sender.setBackgroundImage(UIImage(named: "\(buttonImage.pauseButton)"), for: .normal)
-                sender.setTitle("Pause", for: .normal)
+                sender.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
+                //sender.setTitle("Pause", for: .normal)
             } else if task.state == .completed {
                 stopSound()
 //                soundTimer?.invalidate()
@@ -168,11 +168,11 @@ extension TimerViewController {
                 self.timer?.invalidate()
                 task.updateState(with: .completed)
                 
-                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.repeatButton)"), for: .normal)
-                leftButton.setTitle("Repeat", for: .normal)
+                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
+                //leftButton.setTitle("Repeat", for: .normal)
                 
-                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.muteButton)"), for: .normal)
-                rightButton.setTitle("Mute", for: .normal)
+                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
+                //rightButton.setTitle("Mute", for: .normal)
                 
                 playSound()
             }

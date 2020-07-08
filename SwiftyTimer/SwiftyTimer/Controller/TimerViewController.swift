@@ -45,6 +45,7 @@ class TimerViewController: UIViewController {
             view.backgroundColor = UIColor(named: activity.color!)
         }
         
+        
         //Register notification
         NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.willEnterForegroundNotification, object: nil)

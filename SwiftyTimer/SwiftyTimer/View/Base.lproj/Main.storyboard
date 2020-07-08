@@ -8,6 +8,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Timer View Controller-->
         <scene sceneID="yfe-sb-QPq">
@@ -18,19 +23,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-83-FpV">
-                                <rect key="frame" x="129.66666666666666" y="478" width="116" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="Nia-Vz-myb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="48"/>
+                                <rect key="frame" x="131" y="481.66666666666669" width="113.33333333333331" height="83.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-yA-OrV">
-                                <rect key="frame" x="75" y="626" width="225" height="92"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-yA-OrV">
+                                <rect key="frame" x="84.333333333333329" y="635" width="206.33333333333337" height="83"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-bP-4Sa">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HLD-bP-4Sa" secondAttribute="height" multiplier="1:1" id="98m-cU-HAg"/>
                                         </constraints>
@@ -43,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K3-aQ-VDD">
-                                        <rect key="frame" x="133" y="0.0" width="92" height="92"/>
+                                        <rect key="frame" x="123.33333333333331" y="0.0" width="83" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3K3-aQ-VDD" secondAttribute="height" multiplier="1:1" id="SzR-h7-7Yl"/>
                                         </constraints>
@@ -56,24 +58,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-Sn-7iM">
-                                <rect key="frame" x="75" y="107" width="225" height="225"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-Sn-7iM">
+                                <rect key="frame" x="65.666666666666671" y="113.99999999999999" width="243.66666666666663" height="243.66666666666663"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="DtF-Sn-7iM" secondAttribute="height" multiplier="1:1" id="nhH-pA-XzP"/>
+                                    <constraint firstAttribute="width" secondItem="DtF-Sn-7iM" secondAttribute="height" multiplier="1:1" id="J9K-GH-xE6"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="a4T-yA-OrV" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="1gC-q5-K72"/>
-                            <constraint firstItem="4BR-fY-OcM" firstAttribute="trailing" secondItem="DtF-Sn-7iM" secondAttribute="trailing" constant="75" id="9ZD-Dd-ekf"/>
-                            <constraint firstItem="dEk-83-FpV" firstAttribute="top" relation="lessThanOrEqual" secondItem="DtF-Sn-7iM" secondAttribute="bottom" constant="154" id="CIY-4m-pej"/>
-                            <constraint firstItem="dEk-83-FpV" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="NZC-98-fuU"/>
+                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="95D-aG-PkB"/>
                             <constraint firstItem="4BR-fY-OcM" firstAttribute="bottom" secondItem="a4T-yA-OrV" secondAttribute="bottom" constant="60" id="T72-Fj-eBa"/>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="leading" secondItem="4BR-fY-OcM" secondAttribute="leading" constant="75" id="Wcu-3Y-e6d"/>
-                            <constraint firstItem="a4T-yA-OrV" firstAttribute="top" secondItem="dEk-83-FpV" secondAttribute="bottom" constant="80" id="XmU-tS-0si"/>
-                            <constraint firstItem="a4T-yA-OrV" firstAttribute="width" secondItem="htV-8A-Mm6" secondAttribute="width" multiplier="0.6" id="aIw-6I-2W0"/>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="top" relation="lessThanOrEqual" secondItem="4BR-fY-OcM" secondAttribute="top" constant="63" id="iIK-C3-072"/>
-                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4BR-fY-OcM" secondAttribute="top" constant="35" id="rsP-6g-KgX"/>
+                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="width" secondItem="htV-8A-Mm6" secondAttribute="width" multiplier="0.65" priority="750" id="ZEi-F4-ua1"/>
+                            <constraint firstItem="a4T-yA-OrV" firstAttribute="width" secondItem="htV-8A-Mm6" secondAttribute="width" multiplier="0.55" id="aIw-6I-2W0"/>
+                            <constraint firstItem="a4T-yA-OrV" firstAttribute="top" secondItem="dEk-83-FpV" secondAttribute="bottom" constant="70" id="bNB-mm-yVL"/>
+                            <constraint firstItem="dEk-83-FpV" firstAttribute="centerX" secondItem="htV-8A-Mm6" secondAttribute="centerX" id="bl7-CX-h30"/>
+                            <constraint firstItem="DtF-Sn-7iM" firstAttribute="top" secondItem="4BR-fY-OcM" secondAttribute="top" constant="70" id="jOM-3P-3N9"/>
+                            <constraint firstItem="dEk-83-FpV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DtF-Sn-7iM" secondAttribute="bottom" constant="60" id="pmt-BE-SmD"/>
+                            <constraint firstItem="dEk-83-FpV" firstAttribute="height" secondItem="a4T-yA-OrV" secondAttribute="height" id="zyz-rz-juI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4BR-fY-OcM"/>
                     </view>
@@ -355,7 +357,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIY-jN-uBW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-876" y="-378"/>
+            <point key="canvasLocation" x="-999" y="-16"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="FEk-hO-4pE">
@@ -373,11 +375,11 @@
             </objects>
             <point key="canvasLocation" x="943" y="325"/>
         </scene>
-        <!--Settings-->
+        <!--About-->
         <scene sceneID="qeL-ti-LJT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HJ0-Wc-jMR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Pnz-Eh-2nz"/>
+                    <tabBarItem key="tabBarItem" title="About" image="info.circle" catalog="system" id="Pnz-Eh-2nz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0kk-6I-G8C">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -401,7 +403,7 @@
         <image name="PauseButton" width="115" height="115"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="defaultIcon" width="300" height="300"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Background">
             <color red="0.12941176470588237" green="0.12941176470588237" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

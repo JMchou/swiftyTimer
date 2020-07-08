@@ -15,6 +15,8 @@ class TimerCollectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var addButton: UIButton!
     
+    private var displayLabel: UILabel!
+    
     private let numberOfItemPerRow: CGFloat = 2
     private let cellInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     private let cellIdentifier = "ItemCell"
@@ -31,6 +33,20 @@ class TimerCollectionViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "SwiftyTimers"
         
+        let emptylistLabel = UILabel()
+        displayLabel = emptylistLabel
+        emptylistLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        emptylistLabel.numberOfLines = 0
+        emptylistLabel.text = "You currently don't have any timer created yet. It's time to put me to work!"
+        emptylistLabel.textColor = UIColor.lightGray
+        emptylistLabel.alpha = 0.7
+        emptylistLabel.textAlignment = .center
+        self.view.addSubview(emptylistLabel)
+        
+        emptylistLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptylistLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.6).isActive = true
+        emptylistLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        emptylistLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 100).isActive = true
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.init(named: "TabBarColor")
@@ -46,6 +62,12 @@ class TimerCollectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if items.count != 0 {
+            displayLabel.alpha = 0
+        } else {
+            displayLabel.alpha = 1
+        }
         
         collectionView.reloadData()
         let barAppearance = UINavigationBarAppearance()

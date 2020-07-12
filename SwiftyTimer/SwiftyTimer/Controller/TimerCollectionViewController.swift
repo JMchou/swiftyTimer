@@ -10,18 +10,25 @@ import UIKit
 import UserNotifications
 import RealmSwift
 
-class TimerCollectionViewController: UIViewController {
+class TimerCollectionViewController: UIViewController, SelectionMenuCollectionViewControllerDelegate {
+    func didSelect(_ isIconView: Bool, _ object: String) {
+        //do notthing
+    }
+    
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var addButton: UIButton!
     
     private var displayLabel: UILabel!
+    private var needJobImage: UIImageView!
     
     private let numberOfItemPerRow: CGFloat = 2
     private let cellInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     private let cellIdentifier = "ItemCell"
     private let creationViewIdentifier = "CreationViewController"
     private var cellWidth: CGFloat?
+    private var initialized: Bool = false
+    
     
     private let items = ItemManager.standard.retrieveItems()
     
@@ -46,18 +53,25 @@ class TimerCollectionViewController: UIViewController {
         emptylistLabel.translatesAutoresizingMaskIntoConstraints = false
         emptylistLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.6).isActive = true
         emptylistLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
-        emptylistLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 100).isActive = true
+        emptylistLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 150).isActive = true
+        
+        
+        let emptyListImage = UIImageView()
+        needJobImage = emptyListImage
+        emptyListImage.frame = CGRect(x: 0, y: 0, width: 200, height: 10)
+        emptyListImage.image = UIImage(named: "NeedAJob")
+        emptyListImage.contentMode = .scaleAspectFit
+        self.view.addSubview(emptyListImage)
+        
+        emptyListImage.translatesAutoresizingMaskIntoConstraints = false
+        emptyListImage.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.4).isActive = true
+        emptyListImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        emptyListImage.bottomAnchor.constraint(equalTo: emptylistLabel.topAnchor, constant: 0).isActive = true
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.init(named: "TabBarColor")
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.standardAppearance = appearance
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-            if granted {
-                // do nothing yet
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,13 +79,30 @@ class TimerCollectionViewController: UIViewController {
         
         if items.count != 0 {
             displayLabel.alpha = 0
+            needJobImage.alpha = 0
         } else {
             displayLabel.alpha = 1
+            needJobImage.alpha = 1
         }
         
         collectionView.reloadData()
         let barAppearance = UINavigationBarAppearance()
         barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //present notification vc if the app is being launched for the first time.
+        initialized = UserDefaults.standard.bool(forKey: "initialized")
+        if !initialized {
+            //do nothing yet
+            UserDefaults.standard.set(true, forKey: "initialized")
+            if let notificationVC = storyboard?.instantiateViewController(identifier: "NotificationViewController") as? NotificationViewController {
+                notificationVC.modalPresentationStyle = .fullScreen
+                present(notificationVC, animated: true)
+            }
+        }
     }
     
     //MARK: - IBActions

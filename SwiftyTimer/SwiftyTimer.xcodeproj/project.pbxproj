@@ -11,6 +11,7 @@
 		4B35946C24946A9B0028E9E9 /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946B24946A9A0028E9E9 /* UITextFieldPadding.swift */; };
 		4B35946E24A408790028E9E9 /* SelectionMenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946D24A408790028E9E9 /* SelectionMenuCollectionViewController.swift */; };
 		4B35947024A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946F24A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift */; };
+		4B564E4824BA982E0007202A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B564E4724BA982E0007202A /* NotificationViewController.swift */; };
 		4BA379B524B294FD007592BC /* TimerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379B424B294FD007592BC /* TimerCollectionViewController.swift */; };
 		4BA379B724B3EC71007592BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA379B624B3EC71007592BC /* SettingViewController.swift */; };
 		4BA379C824B54DE2007592BC /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BA379B924B54DD5007592BC /* Lato-Light.ttf */; };
@@ -35,6 +36,7 @@
 		4B35946B24946A9A0028E9E9 /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
 		4B35946D24A408790028E9E9 /* SelectionMenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenuCollectionViewController.swift; sourceTree = "<group>"; };
 		4B35946F24A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B564E4724BA982E0007202A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		4BA379B424B294FD007592BC /* TimerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCollectionViewController.swift; sourceTree = "<group>"; };
 		4BA379B624B3EC71007592BC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4BA379B924B54DD5007592BC /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				4B359469248881060028E9E9 /* CreationViewController.swift */,
 				4B35946D24A408790028E9E9 /* SelectionMenuCollectionViewController.swift */,
 				4BA379B624B3EC71007592BC /* SettingViewController.swift */,
+				4B564E4724BA982E0007202A /* NotificationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */,
 				4B35947024A4092E0028E9E9 /* SelectionMenuCollectionViewCell.swift in Sources */,
 				4BA379B524B294FD007592BC /* TimerCollectionViewController.swift in Sources */,
+				4B564E4824BA982E0007202A /* NotificationViewController.swift in Sources */,
 				4BD9C0F124721C9C00C266BC /* Task.swift in Sources */,
 				4B35946C24946A9B0028E9E9 /* UITextFieldPadding.swift in Sources */,
 				4BBA6996246248BB0081181E /* SceneDelegate.swift in Sources */,

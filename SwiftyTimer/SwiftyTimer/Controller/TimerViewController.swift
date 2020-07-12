@@ -22,7 +22,7 @@ class TimerViewController: UIViewController {
     private weak var timer: Timer?
     private var audioPlayer: AVAudioPlayer?
     private var timePassed = -1
-    private let notificationIdentifier = UUID().uuidString
+    private var notificationIdentifier = ""
     
     private enum buttonImage {
         case CancelButton
@@ -45,7 +45,6 @@ class TimerViewController: UIViewController {
             view.backgroundColor = UIColor(named: activity.color!)
         }
         
-        
         //Register notification
         NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.willEnterForegroundNotification, object: nil)
@@ -57,6 +56,7 @@ class TimerViewController: UIViewController {
     
     deinit {
         timer?.invalidate()
+        stopSound()
     }
     //MARK: - IBActions
     
@@ -70,6 +70,7 @@ class TimerViewController: UIViewController {
                 
                 rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
                 //rightButton.setTitle("Pause", for: .normal)
+                stopSound()
             }
             timePassed = -1
             timer?.invalidate()
@@ -107,6 +108,7 @@ extension TimerViewController {
     @objc func becomeInactive() {
         //schedule local notification
         timer?.invalidate()
+        notificationIdentifier = UUID().uuidString
         
         guard let activity = activity else {
             return

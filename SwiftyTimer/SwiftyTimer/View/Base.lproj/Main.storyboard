@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I3S-jR-WHh">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -19,20 +19,20 @@
             <objects>
                 <viewController storyboardIdentifier="TimerViewController" id="kk1-vy-eov" customClass="TimerViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htV-8A-Mm6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-83-FpV">
-                                <rect key="frame" x="131" y="481.66666666666669" width="113.33333333333331" height="83.333333333333314"/>
+                                <rect key="frame" x="150.5" y="544.5" width="113.5" height="93.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-yA-OrV">
-                                <rect key="frame" x="84.333333333333329" y="635" width="206.33333333333337" height="83"/>
+                                <rect key="frame" x="93" y="708" width="228" height="94"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-bP-4Sa">
-                                        <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="83"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="94"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HLD-bP-4Sa" secondAttribute="height" multiplier="1:1" id="98m-cU-HAg"/>
                                         </constraints>
@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K3-aQ-VDD">
-                                        <rect key="frame" x="123.33333333333331" y="0.0" width="83" height="83"/>
+                                        <rect key="frame" x="134" y="0.0" width="94" height="94"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3K3-aQ-VDD" secondAttribute="height" multiplier="1:1" id="SzR-h7-7Yl"/>
                                         </constraints>
@@ -59,7 +59,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-Sn-7iM">
-                                <rect key="frame" x="65.666666666666671" y="113.99999999999999" width="243.66666666666663" height="243.66666666666663"/>
+                                <rect key="frame" x="72.5" y="114" width="269" height="269"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DtF-Sn-7iM" secondAttribute="height" multiplier="1:1" id="J9K-GH-xE6"/>
                                 </constraints>
@@ -95,21 +95,21 @@
             <objects>
                 <viewController storyboardIdentifier="CreationViewController" id="AR2-k8-Ofs" customClass="CreationViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MSW-qy-1p4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="zf6-ro-IOk">
-                                <rect key="frame" x="30" y="508" width="315" height="50"/>
+                                <rect key="frame" x="30" y="592" width="354" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 hrs : 00 min : 00 sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-cl-D0W">
-                                        <rect key="frame" x="0.0" y="0.0" width="215" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="50"/>
                                         <color key="backgroundColor" name="TextBubble"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o65-Ki-Ulb">
-                                        <rect key="frame" x="229" y="0.0" width="86" height="50"/>
+                                        <rect key="frame" x="257" y="0.0" width="97" height="50"/>
                                         <color key="backgroundColor" name="Blue"/>
                                         <connections>
                                             <action selector="colorButtonPressed:" destination="AR2-k8-Ofs" eventType="touchUpInside" id="GX4-Hx-XLK"/>
@@ -129,7 +129,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Name of the activity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6Q-YE-gRL" customClass="UITextFieldPadding" customModule="SwiftyTimer" customModuleProvider="target">
-                                <rect key="frame" x="30" y="433" width="315" height="50"/>
+                                <rect key="frame" x="30" y="517" width="354" height="50"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Eq1-Y7-tNE"/>
@@ -139,14 +139,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz9-PH-Nw2">
-                                <rect key="frame" x="30" y="588" width="315" height="150"/>
+                                <rect key="frame" x="30" y="672" width="354" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="XDR-xz-WFX"/>
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFP-AE-NQA">
-                                <rect key="frame" x="87" y="129" width="201" height="201"/>
+                                <rect key="frame" x="87" y="174" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.031300220638513565" green="0.47064077854156494" blue="0.97461181879043579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bFP-AE-NQA" secondAttribute="height" multiplier="1:1" id="hSt-EV-mDK"/>
@@ -194,7 +194,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="SelectionMenuCollectionViewController" id="f0g-R1-nwO" customClass="SelectionMenuCollectionViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Gf5-yC-bFo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="60Y-U7-EEW">
@@ -240,16 +240,102 @@
             </objects>
             <point key="canvasLocation" x="3210" y="-378"/>
         </scene>
+        <!--Notification View Controller-->
+        <scene sceneID="B8F-Y5-TvJ">
+            <objects>
+                <viewController storyboardIdentifier="NotificationViewController" id="Odu-OE-QgE" customClass="NotificationViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Sf-mU-x6X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="re2-ky-E7b">
+                                <rect key="frame" x="-40" y="-233" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bell" translatesAutoresizingMaskIntoConstraints="NO" id="Sdy-dN-DUU">
+                                <rect key="frame" x="103.5" y="144" width="207" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Sdy-dN-DUU" secondAttribute="height" multiplier="1:1" id="k3G-Vq-kSr"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5vv-Yu-whD">
+                                <rect key="frame" x="28" y="411" width="286" height="348.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMm-Ys-75h">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="59.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="42"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-aY-ko7">
+                                        <rect key="frame" x="0.0" y="79.5" width="286" height="149"/>
+                                        <string key="text">Please grant permission to enable local notification. It is important for the App to function properly when entering background.</string>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6D-zO-FOr">
+                                        <rect key="frame" x="0.0" y="248.5" width="286" height="40"/>
+                                        <color key="backgroundColor" name="Green"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="AIG-xH-hjF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <state key="normal" title="Allow notification">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="allowButtonPressed:" destination="Odu-OE-QgE" eventType="touchUpInside" id="s64-W7-Bet"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V99-zA-2we">
+                                        <rect key="frame" x="0.0" y="308.5" width="286" height="40"/>
+                                        <color key="backgroundColor" name="Green"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FK1-j7-dGq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <state key="normal" title="Later">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="laterButtonPressed:" destination="Odu-OE-QgE" eventType="touchUpInside" id="JrC-6x-N27"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="5vv-Yu-whD" firstAttribute="top" secondItem="Sdy-dN-DUU" secondAttribute="bottom" constant="60" id="2k1-j3-umV"/>
+                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="centerX" secondItem="6Sf-mU-x6X" secondAttribute="centerX" id="EOo-1d-Z9B"/>
+                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="width" secondItem="6Sf-mU-x6X" secondAttribute="width" multiplier="0.5" id="TmG-Vt-qRo"/>
+                            <constraint firstItem="fxn-g4-3A1" firstAttribute="trailing" secondItem="5vv-Yu-whD" secondAttribute="trailing" constant="100" id="XSF-4l-c0u"/>
+                            <constraint firstItem="5vv-Yu-whD" firstAttribute="leading" secondItem="fxn-g4-3A1" secondAttribute="leading" constant="28" id="fiq-rg-Qnb"/>
+                            <constraint firstItem="fxn-g4-3A1" firstAttribute="bottom" secondItem="5vv-Yu-whD" secondAttribute="bottom" constant="102.5" id="fjG-us-Lgg"/>
+                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="top" secondItem="fxn-g4-3A1" secondAttribute="top" constant="100" id="grA-0d-6b2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fxn-g4-3A1"/>
+                    </view>
+                    <connections>
+                        <outlet property="allowButton" destination="s6D-zO-FOr" id="DoP-UD-WhC"/>
+                        <outlet property="laterButton" destination="V99-zA-2we" id="bRS-Zr-p94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="new-Jc-lcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="-1058"/>
+        </scene>
         <!--Timer Collection View Controller-->
         <scene sceneID="NtM-p7-aZQ">
             <objects>
-                <viewController id="N3A-t6-KQN" customClass="TimerCollectionViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerCollectionViewController" id="N3A-t6-KQN" customClass="TimerCollectionViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6gx-0C-agc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q2u-Ig-WPc">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yC0-yV-Msc">
                                     <size key="itemSize" width="202" height="221"/>
@@ -259,7 +345,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="QtJ-nY-gNO" customClass="SwiftyTimerCell" customModule="SwiftyTimer" customModuleProvider="target">
-                                        <rect key="frame" x="86.666666666666671" y="0.0" width="202" height="221"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="202" height="221"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jlj-TW-JNk">
                                             <rect key="frame" x="0.0" y="0.0" width="202" height="221"/>
@@ -280,7 +366,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-Vm-mCZ">
-                                <rect key="frame" x="295" y="649" width="80" height="80"/>
+                                <rect key="frame" x="325.5" y="724.5" width="88.5" height="88.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hhq-Vm-mCZ" secondAttribute="height" multiplier="1:1" id="3aR-9o-bWr"/>
                                 </constraints>
@@ -322,7 +408,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d27-wr-2wM">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="TabBarColor"/>
@@ -364,7 +450,7 @@
             <objects>
                 <viewController id="YV9-J5-Nc5" customClass="SettingViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4YR-0f-ywZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <viewLayoutGuide key="safeArea" id="Iug-l3-Mbx"/>
@@ -382,7 +468,7 @@
                     <tabBarItem key="tabBarItem" title="About" image="info.circle" catalog="system" id="Pnz-Eh-2nz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0kk-6I-G8C">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="TextBubble"/>
                         <color key="barTintColor" name="TabBarColor"/>
@@ -399,6 +485,7 @@
     </scenes>
     <resources>
         <image name="AddButton" width="308" height="308"/>
+        <image name="Bell" width="277" height="274"/>
         <image name="CancelButton" width="115" height="115"/>
         <image name="PauseButton" width="115" height="115"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
@@ -409,6 +496,9 @@
         </namedColor>
         <namedColor name="Blue">
             <color red="0.29803921568627451" green="0.35686274509803922" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.3449999988079071" green="0.71399998664855957" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TabBarColor">
             <color red="0.11372549019607843" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

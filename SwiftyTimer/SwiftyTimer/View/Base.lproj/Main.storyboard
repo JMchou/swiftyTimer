@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-83-FpV">
-                                <rect key="frame" x="150.5" y="544.5" width="113.5" height="93.5"/>
+                                <rect key="frame" x="148.5" y="544.5" width="117.5" height="93.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -248,39 +248,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="re2-ky-E7b">
-                                <rect key="frame" x="-40" y="-233" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bell" translatesAutoresizingMaskIntoConstraints="NO" id="Sdy-dN-DUU">
-                                <rect key="frame" x="103.5" y="144" width="207" height="207"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Sdy-dN-DUU" secondAttribute="height" multiplier="1:1" id="k3G-Vq-kSr"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5vv-Yu-whD">
-                                <rect key="frame" x="28" y="411" width="286" height="348.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0dc-h2-L36" userLabel="Text StackVIew">
+                                <rect key="frame" x="25" y="416.5" width="310.5" height="163"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMm-Ys-75h">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="59.5"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="310.5" height="52.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-aY-ko7">
-                                        <rect key="frame" x="0.0" y="79.5" width="286" height="149"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-aY-ko7">
+                                        <rect key="frame" x="0.0" y="62.5" width="310.5" height="100.5"/>
                                         <string key="text">Please grant permission to enable local notification. It is important for the App to function properly when entering background.</string>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0dc-h2-L36" secondAttribute="height" multiplier="145:76" id="tCb-eX-5iH"/>
+                                    <constraint firstItem="PMm-Ys-75h" firstAttribute="height" secondItem="vb5-aY-ko7" secondAttribute="height" multiplier="0.518717" id="xqc-wv-tEP"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bell" translatesAutoresizingMaskIntoConstraints="NO" id="Sdy-dN-DUU">
+                                <rect key="frame" x="93" y="124" width="228" height="227.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Sdy-dN-DUU" secondAttribute="height" multiplier="1:1" id="a7X-8V-mwI"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="n5Q-wv-yAi" userLabel="Button Stack">
+                                <rect key="frame" x="20" y="604.5" width="290" height="100"/>
+                                <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6D-zO-FOr">
-                                        <rect key="frame" x="0.0" y="248.5" width="286" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="42.5"/>
                                         <color key="backgroundColor" name="Green"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="AIG-xH-hjF"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <state key="normal" title="Allow notification">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -289,13 +291,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V99-zA-2we">
-                                        <rect key="frame" x="0.0" y="308.5" width="286" height="40"/>
+                                        <rect key="frame" x="0.0" y="57.5" width="290" height="42.5"/>
                                         <color key="backgroundColor" name="Green"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="FK1-j7-dGq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
-                                        <state key="normal" title="Later">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Enable later">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -303,17 +302,24 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="s6D-zO-FOr" firstAttribute="height" secondItem="V99-zA-2we" secondAttribute="height" id="3xe-On-Led"/>
+                                    <constraint firstAttribute="height" constant="100" id="geq-10-VYp"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="5vv-Yu-whD" firstAttribute="top" secondItem="Sdy-dN-DUU" secondAttribute="bottom" constant="60" id="2k1-j3-umV"/>
-                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="centerX" secondItem="6Sf-mU-x6X" secondAttribute="centerX" id="EOo-1d-Z9B"/>
-                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="width" secondItem="6Sf-mU-x6X" secondAttribute="width" multiplier="0.5" id="TmG-Vt-qRo"/>
-                            <constraint firstItem="fxn-g4-3A1" firstAttribute="trailing" secondItem="5vv-Yu-whD" secondAttribute="trailing" constant="100" id="XSF-4l-c0u"/>
-                            <constraint firstItem="5vv-Yu-whD" firstAttribute="leading" secondItem="fxn-g4-3A1" secondAttribute="leading" constant="28" id="fiq-rg-Qnb"/>
-                            <constraint firstItem="fxn-g4-3A1" firstAttribute="bottom" secondItem="5vv-Yu-whD" secondAttribute="bottom" constant="102.5" id="fjG-us-Lgg"/>
-                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="top" secondItem="fxn-g4-3A1" secondAttribute="top" constant="100" id="grA-0d-6b2"/>
+                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="centerX" secondItem="6Sf-mU-x6X" secondAttribute="centerX" id="427-OA-1o0"/>
+                            <constraint firstItem="0dc-h2-L36" firstAttribute="top" secondItem="Sdy-dN-DUU" secondAttribute="bottom" constant="65" id="9HD-iR-gUx"/>
+                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Sf-mU-x6X" secondAttribute="width" multiplier="0.55" id="CQg-mo-xnr"/>
+                            <constraint firstItem="n5Q-wv-yAi" firstAttribute="width" secondItem="6Sf-mU-x6X" secondAttribute="width" multiplier="0.7" id="EWz-dO-e56"/>
+                            <constraint firstItem="n5Q-wv-yAi" firstAttribute="top" secondItem="0dc-h2-L36" secondAttribute="bottom" constant="25" id="JpT-O2-i6O"/>
+                            <constraint firstItem="fxn-g4-3A1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="n5Q-wv-yAi" secondAttribute="bottom" constant="50" id="NJi-ff-kvV"/>
+                            <constraint firstItem="0dc-h2-L36" firstAttribute="width" secondItem="6Sf-mU-x6X" secondAttribute="width" multiplier="0.75" id="RFo-ug-Yzm"/>
+                            <constraint firstItem="n5Q-wv-yAi" firstAttribute="leading" secondItem="fxn-g4-3A1" secondAttribute="leading" constant="20" id="WME-YO-P6L"/>
+                            <constraint firstItem="Sdy-dN-DUU" firstAttribute="top" secondItem="fxn-g4-3A1" secondAttribute="top" constant="80" id="dS0-D2-pve"/>
+                            <constraint firstItem="0dc-h2-L36" firstAttribute="leading" secondItem="fxn-g4-3A1" secondAttribute="leading" constant="25" id="l69-wH-Ic2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fxn-g4-3A1"/>
                     </view>
@@ -324,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="new-Jc-lcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="-1058"/>
+            <point key="canvasLocation" x="940.57971014492762" y="-1058.0357142857142"/>
         </scene>
         <!--Timer Collection View Controller-->
         <scene sceneID="NtM-p7-aZQ">
@@ -338,26 +344,26 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yC0-yV-Msc">
-                                    <size key="itemSize" width="202" height="221"/>
+                                    <size key="itemSize" width="414" height="436"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="QtJ-nY-gNO" customClass="SwiftyTimerCell" customModule="SwiftyTimer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="202" height="221"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jlj-TW-JNk">
-                                            <rect key="frame" x="0.0" y="0.0" width="202" height="221"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hpw-BU-aDz">
-                                                    <rect key="frame" x="38" y="55" width="125" height="111"/>
+                                                    <rect key="frame" x="65" y="53" width="285" height="278"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="202" height="221"/>
+                                        <size key="customSize" width="414" height="436"/>
                                         <connections>
                                             <outlet property="imageView" destination="Hpw-BU-aDz" id="NVN-5l-84p"/>
                                             <outlet property="view" destination="Jlj-TW-JNk" id="NVk-Gr-tnu"/>
@@ -397,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wm-f3-NKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="-378.32512315270935"/>
+            <point key="canvasLocation" x="939.13043478260875" y="-378.34821428571428"/>
         </scene>
         <!--Timers-->
         <scene sceneID="gY0-Oh-Xua">

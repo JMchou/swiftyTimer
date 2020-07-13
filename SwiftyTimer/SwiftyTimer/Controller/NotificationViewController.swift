@@ -16,9 +16,19 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        allowButton.layer.cornerRadius = 10
-        laterButton.layer.cornerRadius = 10
+        
+        allowButton.layoutSubviews()
+        allowButton.layoutIfNeeded()
+        let allowButtonWidth = allowButton.bounds.width
+        allowButton.layer.cornerCurve = .continuous
+        allowButton.layer.cornerRadius = allowButtonWidth / 13
+        
+        laterButton.layoutSubviews()
+        laterButton.layoutIfNeeded()
+        let laterButtonWidth = laterButton.bounds.width
+        laterButton.layer.cornerCurve = .continuous
+        laterButton.layer.cornerRadius = laterButtonWidth / 13
+        
     }
     
     @IBAction func allowButtonPressed(_ sender: UIButton) {

@@ -134,9 +134,13 @@ extension TimerCollectionViewController: UICollectionViewDelegate, UICollectionV
         cell.backgroundColor = UIColor(named: activity.color!)
         cell.imageView.image = UIImage(named: activity.iconName!)
         cell.layer.cornerRadius = 30
+        
         if let cellWidth = self.cellWidth {
             cell.cellWidth = cellWidth
+            cell.nameLabel.text = activity.name
+            cell.durationLabel.text = formatTime(duration: activity.duration)
             cell.setConstraint()
+            cell.configureText()
         }
         return cell
     }
@@ -149,6 +153,30 @@ extension TimerCollectionViewController: UICollectionViewDelegate, UICollectionV
         }
     }
     
+    
+    func formatTime(duration: Int) -> String {
+        
+        let hours = duration / 3600
+        let minutes = (duration / 60) % 60
+        let seconds =  duration % 60
+        
+        var countDown = ""
+        if hours > 0 {
+            countDown += "\(hours) : "
+        }
+        if minutes > 9 {
+            countDown += "\(minutes) : "
+        } else {
+            countDown += "0\(minutes) : "
+        }
+        if seconds > 9 {
+            countDown += "\(seconds)"
+        } else {
+            countDown += "0\(seconds)"
+        }
+        
+        return countDown
+    }
     
 }
 
@@ -163,7 +191,7 @@ extension TimerCollectionViewController: UICollectionViewDelegateFlowLayout {
         let widthPerItem = availableSpace / numberOfItemPerRow
         self.cellWidth = widthPerItem
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: widthPerItem + 25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

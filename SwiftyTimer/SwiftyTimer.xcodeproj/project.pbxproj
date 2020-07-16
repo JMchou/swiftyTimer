@@ -24,10 +24,10 @@
 		4BBA69AC24624AD20081181E /* SwiftyTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */; };
 		4BBA69AF246373B60081181E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA69AE246373B60081181E /* TimerViewController.swift */; };
 		4BBA69B124639D0B0081181E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BBA69B024639D0B0081181E /* Colors.xcassets */; };
+		4BBED52D24BFE726006D97E6 /* Alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED52C24BFE726006D97E6 /* Alarm.wav */; };
 		4BC95A4524A49D180051F0C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC95A4424A49D180051F0C8 /* Item.swift */; };
 		4BC95A4724A49D400051F0C8 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC95A4624A49D400051F0C8 /* ItemManager.swift */; };
 		4BD9C0F124721C9C00C266BC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD9C0F024721C9C00C266BC /* Task.swift */; };
-		4BFB2C9A2475181400B031FC /* Alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB2C992475181400B031FC /* Alarm.wav */; };
 		8EC5FB006349BA128BF7E325 /* Pods_SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7622B89918AC79D2B5A327 /* Pods_SwiftyTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +51,10 @@
 		4BBA69AB24624AD20081181E /* SwiftyTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyTimerCell.swift; sourceTree = "<group>"; };
 		4BBA69AE246373B60081181E /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		4BBA69B024639D0B0081181E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = View/Colors.xcassets; sourceTree = "<group>"; };
+		4BBED52C24BFE726006D97E6 /* Alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Alarm.wav; sourceTree = "<group>"; };
 		4BC95A4424A49D180051F0C8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4BC95A4624A49D400051F0C8 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		4BD9C0F024721C9C00C266BC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		4BFB2C992475181400B031FC /* Alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Alarm.wav; sourceTree = "<group>"; };
 		7F7622B89918AC79D2B5A327 /* Pods_SwiftyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D5D6CD3DF877C1E7D93EAF /* Pods-SwiftyTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyTimer.release.xcconfig"; path = "Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer.release.xcconfig"; sourceTree = "<group>"; };
 		C3BE9D960B776A6EBBA2A8A7 /* Pods-SwiftyTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyTimer.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyTimer/Pods-SwiftyTimer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		4BFB2C982475175200B031FC /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				4BFB2C992475181400B031FC /* Alarm.wav */,
+				4BBED52C24BFE726006D97E6 /* Alarm.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -239,8 +239,8 @@
 				4BBA69A0246248BC0081181E /* LaunchScreen.storyboard in Resources */,
 				4BBA69B124639D0B0081181E /* Colors.xcassets in Resources */,
 				4BA379C824B54DE2007592BC /* Lato-Light.ttf in Resources */,
+				4BBED52D24BFE726006D97E6 /* Alarm.wav in Resources */,
 				4BBA699D246248BC0081181E /* Assets.xcassets in Resources */,
-				4BFB2C9A2475181400B031FC /* Alarm.wav in Resources */,
 				4BA379CA24B54DE2007592BC /* Lato-Regular.ttf in Resources */,
 				4BBA699B246248BB0081181E /* Main.storyboard in Resources */,
 			);

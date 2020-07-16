@@ -483,23 +483,26 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftyTimer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5D-eF-CiW">
-                                <rect key="frame" x="138.5" y="433.5" width="137" height="36"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="25"/>
+                                <rect key="frame" x="144" y="433.5" width="126.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.0 V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jni-AP-ptk">
-                                <rect key="frame" x="166.5" y="469.5" width="81" height="36"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jni-AP-ptk">
+                                <rect key="frame" x="173.5" y="468.5" width="67.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrk-0G-chq">
-                                <rect key="frame" x="154.5" y="535.5" width="105" height="28"/>
+                                <rect key="frame" x="154.5" y="528.5" width="105" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Aknowledgement">
                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="AcknowledgementPressed:" destination="YV9-J5-Nc5" eventType="touchUpInside" id="bGG-Di-J14"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
@@ -510,7 +513,7 @@
                             <constraint firstItem="D7p-vR-hV8" firstAttribute="centerY" secondItem="4YR-0f-ywZ" secondAttribute="centerY" multiplier="0.9" id="MVz-Hf-gwe"/>
                             <constraint firstItem="D7p-vR-hV8" firstAttribute="centerX" secondItem="4YR-0f-ywZ" secondAttribute="centerX" id="RUk-VH-iyQ"/>
                             <constraint firstItem="F5D-eF-CiW" firstAttribute="top" secondItem="D7p-vR-hV8" secondAttribute="bottom" constant="20" id="YgK-NG-v3R"/>
-                            <constraint firstItem="jni-AP-ptk" firstAttribute="top" secondItem="F5D-eF-CiW" secondAttribute="bottom" id="Z4M-Sj-qw7"/>
+                            <constraint firstItem="jni-AP-ptk" firstAttribute="top" secondItem="F5D-eF-CiW" secondAttribute="bottom" constant="5" id="Z4M-Sj-qw7"/>
                             <constraint firstItem="jni-AP-ptk" firstAttribute="centerX" secondItem="4YR-0f-ywZ" secondAttribute="centerX" id="aal-0y-mc2"/>
                             <constraint firstItem="D7p-vR-hV8" firstAttribute="width" secondItem="4YR-0f-ywZ" secondAttribute="width" multiplier="0.23" id="u8l-1x-jdu"/>
                         </constraints>
@@ -521,6 +524,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ija-if-h0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="942.02898550724649" y="324.77678571428572"/>
+        </scene>
+        <!--Text View Controller-->
+        <scene sceneID="QKy-c5-v9B">
+            <objects>
+                <viewController storyboardIdentifier="TextViewController" id="piT-eG-kCc" customClass="TextViewController" customModule="SwiftyTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DrH-79-mVi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0s-eb-vLa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="K0s-eb-vLa" firstAttribute="leading" secondItem="TBL-Ie-hHm" secondAttribute="leading" id="TNC-0l-heC"/>
+                            <constraint firstItem="TBL-Ie-hHm" firstAttribute="bottom" secondItem="K0s-eb-vLa" secondAttribute="bottom" id="f8g-3x-deT"/>
+                            <constraint firstItem="TBL-Ie-hHm" firstAttribute="trailing" secondItem="K0s-eb-vLa" secondAttribute="trailing" id="v9U-IJ-Bkn"/>
+                            <constraint firstItem="K0s-eb-vLa" firstAttribute="top" secondItem="TBL-Ie-hHm" secondAttribute="top" id="zAx-Bz-1vp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TBL-Ie-hHm"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="K0s-eb-vLa" id="fk0-9t-ERy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmw-JE-zg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="325"/>
         </scene>
         <!--About-->
         <scene sceneID="qeL-ti-LJT">

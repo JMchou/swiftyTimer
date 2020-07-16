@@ -44,7 +44,6 @@ class NotificationViewController: UIViewController {
                 }
             }
         }
-       
     }
     
     @IBAction func laterButtonPressed(_ sender: UIButton) {

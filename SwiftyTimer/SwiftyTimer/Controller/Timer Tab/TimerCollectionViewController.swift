@@ -15,7 +15,6 @@ class TimerCollectionViewController: UIViewController, SelectionMenuCollectionVi
         //do notthing
     }
     
-    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var addButton: UIButton!
     

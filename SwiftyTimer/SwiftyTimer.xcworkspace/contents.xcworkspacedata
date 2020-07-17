@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftyTimer.xcodeproj">
+      location = "group:/Users/jiamingzhou/Documents/IOS development/Projects/SwiftyTimer/SwiftyTimer/SwiftyTimer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

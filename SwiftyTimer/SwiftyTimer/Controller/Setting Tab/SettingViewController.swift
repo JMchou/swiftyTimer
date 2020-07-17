@@ -12,7 +12,13 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let barAppearance = UINavigationBarAppearance()
+        barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barAppearance.backgroundColor = UIColor.init(named: "TabBarColor")
+        navigationItem.standardAppearance = barAppearance
+        
+        title = "About"
         // Do any additional setup after loading the view.
     }
     

@@ -533,26 +533,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0s-eb-vLa">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lez-aw-zBY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="K0s-eb-vLa" firstAttribute="leading" secondItem="TBL-Ie-hHm" secondAttribute="leading" id="TNC-0l-heC"/>
-                            <constraint firstItem="TBL-Ie-hHm" firstAttribute="bottom" secondItem="K0s-eb-vLa" secondAttribute="bottom" id="f8g-3x-deT"/>
-                            <constraint firstItem="TBL-Ie-hHm" firstAttribute="trailing" secondItem="K0s-eb-vLa" secondAttribute="trailing" id="v9U-IJ-Bkn"/>
-                            <constraint firstItem="K0s-eb-vLa" firstAttribute="top" secondItem="TBL-Ie-hHm" secondAttribute="top" id="zAx-Bz-1vp"/>
+                            <constraint firstItem="TBL-Ie-hHm" firstAttribute="trailing" secondItem="Lez-aw-zBY" secondAttribute="trailing" id="GR1-lX-DA0"/>
+                            <constraint firstItem="Lez-aw-zBY" firstAttribute="top" secondItem="TBL-Ie-hHm" secondAttribute="top" id="RgH-2W-PiS"/>
+                            <constraint firstItem="TBL-Ie-hHm" firstAttribute="bottom" secondItem="Lez-aw-zBY" secondAttribute="bottom" id="hYG-91-v8K"/>
+                            <constraint firstItem="Lez-aw-zBY" firstAttribute="leading" secondItem="TBL-Ie-hHm" secondAttribute="leading" id="nX5-9M-CEx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TBL-Ie-hHm"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="K0s-eb-vLa" id="fk0-9t-ERy"/>
+                        <outlet property="textView" destination="Lez-aw-zBY" id="mgl-Zg-QJu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmw-JE-zg3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -570,6 +569,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="TextBubble"/>
                         <color key="barTintColor" name="TabBarColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -591,7 +596,7 @@
         <image name="defaultIcon" width="300" height="300"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Background">
-            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Blue">
             <color red="0.29803921568627451" green="0.35686274509803922" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

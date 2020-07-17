@@ -11,16 +11,28 @@ import WebKit
 
 class TextViewController: UIViewController {
     
-    @IBOutlet var webView: WKWebView!
+    @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {
         
-        title = "Acknowledgement"
-        navigationItem.titleView?.backgroundColor = .white
-    
-        let myUrl = URL(string: "https://www.apple.com")!
-        let myRequest = URLRequest(url: myUrl)
-        webView.load(myRequest)
+        if let filepath = Bundle.main.path(forResource: "acknowledgement", ofType: "html") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                
+                let htmlData = NSString(string: contents).data(using: String.Encoding.utf8.rawValue)
+                
+                let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+                
+                let attributedString = try! NSAttributedString(data: htmlData!,
+                                                               options: options, documentAttributes: nil)
+                
+                textView.attributedText = attributedString
+            } catch {
+                print("failed to retrieve acknowledgement document \(error)")
+            }
+        }
+        
+        
     }
     
 }

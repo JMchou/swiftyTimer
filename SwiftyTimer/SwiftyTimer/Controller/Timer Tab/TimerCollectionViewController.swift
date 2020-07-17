@@ -37,7 +37,7 @@ class TimerCollectionViewController: UIViewController, SelectionMenuCollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
-        self.title = "SwiftyTimers"
+        self.title = "SwiftyTimer"
         
         let emptylistLabel = UILabel()
         displayLabel = emptylistLabel

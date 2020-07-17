@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B2CF98A24C18F9200E5A332 /* acknowledgement.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B2CF98924C18F9200E5A332 /* acknowledgement.html */; };
 		4B2E208E24C01892000CF6D0 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2E208D24C01892000CF6D0 /* TextViewController.swift */; };
 		4B35946A248881060028E9E9 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B359469248881060028E9E9 /* CreationViewController.swift */; };
 		4B35946C24946A9B0028E9E9 /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35946B24946A9A0028E9E9 /* UITextFieldPadding.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B2CF98924C18F9200E5A332 /* acknowledgement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = acknowledgement.html; sourceTree = "<group>"; };
 		4B2E208D24C01892000CF6D0 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		4B359469248881060028E9E9 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		4B35946B24946A9A0028E9E9 /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				4BBA69B024639D0B0081181E /* Colors.xcassets */,
 				4BBA699E246248BC0081181E /* LaunchScreen.storyboard */,
 				4BBA69A1246248BC0081181E /* Info.plist */,
+				4B2CF98924C18F9200E5A332 /* acknowledgement.html */,
 				4BA379B824B54D9B007592BC /* Fonts */,
 				4BFB2C982475175200B031FC /* Sounds */,
 			);
@@ -262,6 +265,7 @@
 				4BBA699D246248BC0081181E /* Assets.xcassets in Resources */,
 				4BA379CA24B54DE2007592BC /* Lato-Regular.ttf in Resources */,
 				4BBA699B246248BB0081181E /* Main.storyboard in Resources */,
+				4B2CF98A24C18F9200E5A332 /* acknowledgement.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +486,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftyTimer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -502,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftyTimer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

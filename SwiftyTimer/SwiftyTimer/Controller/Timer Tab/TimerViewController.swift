@@ -43,10 +43,18 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        let barAppearance = UINavigationBarAppearance()
+        barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barAppearance.backgroundColor = UIColor.init(named: "TabBarColor")
+        navigationItem.standardAppearance = barAppearance
+        
         
         if let activity = activity {
             imageView.image = UIImage(named: activity.iconName!)
             view.backgroundColor = UIColor(named: activity.color!)
+            self.title = activity.name
         }
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(returnToHomePage))
@@ -56,8 +64,8 @@ class TimerViewController: UIViewController {
         navigationItem.rightBarButtonItem = deleteButton
         
         //Register notification
-        NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.willDeactivateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.didActivateNotification, object: nil)
         
         //Start a timer that increments every second
         updateTimer()
@@ -175,24 +183,25 @@ extension TimerViewController {
             content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "Alarm.wav"))
             
             let remainingTime = Double(activity.duration - timePassed)
-            print(remainingTime)
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: remainingTime, repeats: false)
             let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
             
             // add our notification request
             UNUserNotificationCenter.current().add(request)
+        } else if task.state == .completed {
+            stopSound()
         }
     }
     
     @objc func becomesActive() {
-        //cancel local notification
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
-        
         //Resume timer
         guard let activity = activity else {
             fatalError("No activity exists.")
         }
         guard task.state != .notStarted else { return }
+        
+        //cancel local notification
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
         
         let timeInterval = task.timeCreated.timeIntervalSinceNow
         let roundedDate = ceil(timeInterval)
@@ -204,7 +213,6 @@ extension TimerViewController {
             creatTimer()
         } else {
             timePassed = (activity.duration - 1)
-            print(timePassed)
             task.updateState(with: .completed)
             leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
             rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)

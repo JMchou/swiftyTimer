@@ -17,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Cuz-OS-9qg">
-                                <rect key="frame" x="119.5" y="301.5" width="175.5" height="212.5"/>
+                                <rect key="frame" x="117" y="305" width="180" height="205.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="PBt-8C-YUQ">
-                                        <rect key="frame" x="18.5" y="0.0" width="138" height="138"/>
+                                        <rect key="frame" x="21" y="0.0" width="138" height="138"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="138" id="NgA-wE-jns"/>
                                             <constraint firstAttribute="height" constant="138" id="Z3D-2E-R5h"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftyTimer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9u-KJ-kbH">
-                                        <rect key="frame" x="0.0" y="167" width="175.5" height="45.5"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                                        <rect key="frame" x="0.0" y="167" width="180" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -51,7 +51,7 @@
     <resources>
         <image name="Icon" width="364" height="440"/>
         <namedColor name="Background">
-            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct Task {
     var state: status
     var timeCreated: Date
+    private let realm = try! Realm()
     
     enum status {
+        case notStarted
         case ongoing
         case paused
         case completed

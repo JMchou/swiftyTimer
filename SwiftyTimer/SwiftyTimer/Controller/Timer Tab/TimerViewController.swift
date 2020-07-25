@@ -21,9 +21,11 @@ class TimerViewController: UIViewController {
     //MARK: - Variables and properties
     private weak var timer: Timer?
     private var audioPlayer: AVAudioPlayer?
-    private var timePassed = -1
+    private var remainingTime = 0
+    private var countDownDuration = 0
     private var notificationIdentifier = ""
     private let itemManager = ItemManager.standard
+    private var becameInactive = false
     
     private enum buttonImage {
         case StartButton
@@ -43,7 +45,6 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         let barAppearance = UINavigationBarAppearance()
         barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -55,6 +56,8 @@ class TimerViewController: UIViewController {
             imageView.image = UIImage(named: activity.iconName!)
             view.backgroundColor = UIColor(named: activity.color!)
             self.title = activity.name
+            self.remainingTime = activity.duration
+            self.countDownDuration = activity.duration
         }
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(returnToHomePage))
@@ -64,7 +67,7 @@ class TimerViewController: UIViewController {
         navigationItem.rightBarButtonItem = deleteButton
         
         //Register notification
-        NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.willDeactivateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.didActivateNotification, object: nil)
         
         //Start a timer that increments every second
@@ -106,47 +109,51 @@ class TimerViewController: UIViewController {
             if task.state == .notStarted {
                 self.navigationController?.popViewController(animated: true)
             } else if task.state == .completed {
-                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RestartButton)"), for: .normal)
+                //Repeat Timer
                 
-                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
-                
-                task.updateState(with: .ongoing)
                 stopSound()
                 resetTimer()
                 creatTimer()
+                task.updateState(with: .ongoing)
+                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RestartButton)"), for: .normal)
+                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
             } else if task.state == .paused {
-                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.CancelButton)"), for: .normal)
+                //Reset Timer but don't start
                 
-                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.StartButton)"), for: .normal)
-                
-                task.updateState(with: .notStarted)
                 resetTimer()
-                
+                task.updateState(with: .notStarted)
+                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.CancelButton)"), for: .normal)
+                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.StartButton)"), for: .normal)
             } else if task.state == .ongoing {
                 resetTimer()
                 creatTimer()
             }
         case 1:
             if task.state == .notStarted {
+                //Start timer
+                
                 creatTimer()
                 task.updateState(with: .ongoing)
                 task.resetTime()
                 sender.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
                 leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RestartButton)"), for: .normal)
             } else if task.state == .ongoing {
+                //Pause timer
+                
                 timer?.invalidate()
-                timer = nil
                 task.updateState(with: .paused)
                 sender.setBackgroundImage(UIImage(named: "\(buttonImage.ResumeButton)"), for: .normal)
                 leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.ResetButton)"), for: .normal)
-                //sender.setTitle("Resume", for: .normal)
             } else if task.state == .paused {
+                //Resume Timer
+                
                 creatTimer()
                 task.updateState(with: .ongoing)
                 sender.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
                 leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RestartButton)"), for: .normal)
-                //sender.setTitle("Pause", for: .normal)
             } else if task.state == .completed {
+                //Mute sound when timer is completed
+                
                 stopSound()
             }
         default:
@@ -155,10 +162,12 @@ class TimerViewController: UIViewController {
     }
     
     func resetTimer() {
-        timePassed = -1
-        timer?.invalidate()
-        task.resetTime()
-        updateTimer()
+        if let activity = activity {
+            timer?.invalidate()
+            remainingTime = activity.duration
+            task.resetTime()
+            updateTimer()
+        }
     }
 }
 
@@ -170,20 +179,22 @@ extension TimerViewController {
     @objc func becomeInactive() {
         //schedule local notification
         timer?.invalidate()
-        if task.state != .completed {
+        self.becameInactive = true
+        if task.state == .ongoing {
             notificationIdentifier = UUID().uuidString
-            
-            guard let activity = activity else {
-                return
-            }
+            task.resetTime()
             
             let content = UNMutableNotificationContent()
             content.title = "Time's Up!"
-            content.body = "You have completed your activity."
+            if let activity = activity {
+                if let activityName = activity.name {
+                    content.body = "Your \(activityName) timer has ended."
+                }
+            }
             content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "Alarm.wav"))
             
-            let remainingTime = Double(activity.duration - timePassed)
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: remainingTime, repeats: false)
+            let timeInterval = Double(remainingTime)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
             let request = UNNotificationRequest(identifier: notificationIdentifier, content: content, trigger: trigger)
             
             // add our notification request
@@ -195,29 +206,28 @@ extension TimerViewController {
     
     @objc func becomesActive() {
         //Resume timer
-        guard let activity = activity else {
-            fatalError("No activity exists.")
-        }
-        guard task.state != .notStarted else { return }
+        guard task.state == .ongoing else { return }
+        guard becameInactive else { return }
         
         //cancel local notification
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
         
         let timeInterval = task.timeCreated.timeIntervalSinceNow
-        let roundedDate = ceil(timeInterval)
-        let dateAsInt = Int(roundedDate) * -1
-    
-        if dateAsInt <  activity.duration {
-            timePassed = (dateAsInt - 1)
+        let roundedTimeInterval = ceil(timeInterval)
+        let intervalAsInt = Int(roundedTimeInterval) * -1
+        
+        if intervalAsInt <  remainingTime {
+            self.remainingTime = remainingTime - intervalAsInt
             updateTimer()
             creatTimer()
         } else {
-            timePassed = (activity.duration - 1)
+            remainingTime = 0
             task.updateState(with: .completed)
+            updateTimer()
             leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
             rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
-            updateTimer()
         }
+        becameInactive = false
     }
 }
 
@@ -235,43 +245,35 @@ extension TimerViewController {
     }
     
     func updateTimer() {
-        if let activity = activity {
-            timePassed += 1
-            
-            if timePassed == activity.duration && task.state != .completed {
-                self.timer?.invalidate()
-                task.updateState(with: .completed)
-                
-                leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
-
-                rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
-
-                
-                playSound()
-            }
-            
-            let currentTime = activity.duration - timePassed
-            let hours = currentTime / 3600
-            let minutes = (currentTime / 60) % 60
-            let seconds =  currentTime % 60
-            
-            var countDown = ""
-            if hours > 0 {
-                countDown += "\(hours):"
-            }
-            if minutes > 9 {
-                countDown += "\(minutes):"
-            } else {
-                countDown += "0\(minutes):"
-            }
-            if seconds > 9 {
-                countDown += "\(seconds)"
-            } else {
-                countDown += "0\(seconds)"
-            }
-            
-            countDownLabel.text = countDown
+        if remainingTime == 0 && task.state != .completed {
+            playSound()
+            self.timer?.invalidate()
+            task.updateState(with: .completed)
+            leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
+            rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
         }
+        
+        let hours = remainingTime / 3600
+        let minutes = (remainingTime / 60) % 60
+        let seconds =  remainingTime % 60
+        
+        var countDown = ""
+        if hours > 0 {
+            countDown += "\(hours):"
+        }
+        if minutes > 9 {
+            countDown += "\(minutes):"
+        } else {
+            countDown += "0\(minutes):"
+        }
+        if seconds > 9 {
+            countDown += "\(seconds)"
+        } else {
+            countDown += "0\(seconds)"
+        }
+        
+        remainingTime -= 1
+        countDownLabel.text = countDown
     }
     
 }

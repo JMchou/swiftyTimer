@@ -28,8 +28,4 @@ struct Task {
     mutating func resetTime() {
         self.timeCreated = Date(timeIntervalSinceNow: 0)
     }
-    
-    func saveTask() {
-        
-    }
 }

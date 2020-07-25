@@ -14,7 +14,6 @@ class TextViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {
-        
         if let filepath = Bundle.main.path(forResource: "acknowledgement", ofType: "html") {
             do {
                 let contents = try String(contentsOfFile: filepath)
@@ -31,8 +30,11 @@ class TextViewController: UIViewController {
                 print("failed to retrieve acknowledgement document \(error)")
             }
         }
-        
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textView.setContentOffset(.zero, animated: false)
     }
     
 }

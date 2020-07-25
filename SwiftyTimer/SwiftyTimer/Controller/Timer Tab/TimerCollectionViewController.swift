@@ -138,7 +138,7 @@ extension TimerCollectionViewController: UICollectionViewDelegate, UICollectionV
             cell.cellWidth = cellWidth
             cell.nameLabel.text = activity.name
             cell.durationLabel.text = formatTime(duration: activity.duration)
-            cell.setConstraint()
+//            cell.setConstraint()
             cell.configureText()
         }
         return cell

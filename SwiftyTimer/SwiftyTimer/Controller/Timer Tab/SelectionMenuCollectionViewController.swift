@@ -16,7 +16,7 @@ class SelectionMenuCollectionViewController: UICollectionViewController {
     var delegate: SelectionMenuCollectionViewControllerDelegate?
     
     //properties
-    private let colorNames = ["Red", "Blue", "Green", "LightGreen", "Red", "Cyan"]
+    private let colorNames = ["Berry", "Blue", "Champagne", "Cyan", "Green", "Grey", "Haze", "LightGreen", "Orange", "Penny", "Pink", "Red", "Sage", "Sapphire", "SeaGreen"]
     private let numberOfItemPerRow: CGFloat = 2
     private let cellInset = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
     
@@ -34,7 +34,7 @@ class SelectionMenuCollectionViewController: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         switch isIcon {
         case true:
-            return 25
+            return 50
         default:
             return colorNames.count
         }

@@ -15,26 +15,33 @@ class CreationViewController: UIViewController {
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var durationView: UILabel!
     @IBOutlet var iconView: UIButton!
+    @IBOutlet var buttonImage: UIImageView!
     @IBOutlet var nameTextField: UITextFieldPadding!
     @IBOutlet var colorButton: UIButton!
     @IBOutlet var stackView: UIStackView!
     
+    private let colorNames = ["Berry", "Blue", "Champagne", "Cyan", "Green", "Grey", "Haze", "LightGreen", "Orange", "Penny", "Pink", "Red", "Sage", "Sapphire", "SeaGreen"]
     private var hours: String = "00"
     private var minutes: String = "00"
     private var seconds: String = "00"
-    private var activityColor: String = "Blue"
+    private var activityColor: String = ""
     private var activityIcon: String?
     private let itemManager = ItemManager.standard
     
     override func viewDidLayoutSubviews() {
-
-       let iconSize = iconView.frame.size.width
-       iconView.layer.cornerRadius = iconSize/2
-               
+        
+        let iconSize = iconView.frame.size.width
+        iconView.layer.cornerRadius = iconSize/2
+        buttonImage.layer.cornerRadius = iconSize / 2
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buttonImage.clipsToBounds = false
+        activityColor = colorNames.randomElement() ?? "Grey"
+        buttonImage.backgroundColor = UIColor.init(named: activityColor)
+        colorButton.backgroundColor = UIColor.init(named: activityColor)
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -88,9 +95,18 @@ class CreationViewController: UIViewController {
     @objc private func finishedAddingItem() {
         //Persist new item to local storage.
         let duration = convertStringToIntDuraction()
-        guard duration > 0 else { return }
+        guard duration > 0 else {
+            self.missingInfoAlert(messsage: "a duration")
+            return
+        }
         guard let name = nameTextField.text else { return }
-        guard let icon = activityIcon else { return }
+        guard name != "" else {
+            self.missingInfoAlert(messsage: "a name")
+            return
+        }
+        guard let icon = activityIcon else {
+            self.missingInfoAlert(messsage: "an icon")
+            return }
         
         itemManager.createItem(name: name, iconName: icon, duration: duration, Color: self.activityColor)
         navigationController?.popViewController(animated: true)
@@ -121,6 +137,15 @@ class CreationViewController: UIViewController {
     
     @objc private func moveViewBack(notification: NSNotification) {
         self.view.frame.origin.y = 0
+    }
+    
+    func missingInfoAlert(messsage: String) {
+        let alertMessage = "Please enter \(messsage) for this timer"
+        
+        let alert = UIAlertController(title: "Missing Information", message: alertMessage, preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(dismiss)
+        present(alert, animated: true)
     }
 }
 
@@ -198,13 +223,13 @@ extension CreationViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // get the current text, or use an empty string if that failed
         let currentText = textField.text ?? ""
-
+        
         // attempt to read the range they are trying to change, or exit if we can't
         guard let stringRange = Range(range, in: currentText) else { return false }
-
+        
         // add their new text to the existing text
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-
+        
         // make sure the result is under 16 characters
         return updatedText.count <= 16
     }
@@ -288,16 +313,14 @@ extension CreationViewController: SelectionMenuCollectionViewControllerDelegate 
     func didSelect(_ isIconView: Bool, _ object: String) {
         
         if isIconView {
-            iconView.setImage(UIImage(named: object), for: .normal)
-            activityIcon = object
+//            iconView.setImage(UIImage(named: object), for: .normal)
+            buttonImage.image = UIImage(named: "Original" + object)
+            activityIcon = "Original" + object
         } else {
             colorButton.backgroundColor = UIColor.init(named: object)
-            iconView.backgroundColor = UIColor.init(named: object)
+            buttonImage.backgroundColor = UIColor.init(named: object)
+//            iconView.backgroundColor = UIColor.init(named: object)
             activityColor = object
         }
     }
 }
-
-
-//MARK: - UITextField delegate methods
-

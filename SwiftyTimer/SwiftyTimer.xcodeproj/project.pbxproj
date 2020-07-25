@@ -477,7 +477,9 @@
 			baseConfigurationReference = C3BE9D960B776A6EBBA2A8A7 /* Pods-SwiftyTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5T84VHY5G4;
 				INFOPLIST_FILE = SwiftyTimer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -485,8 +487,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
 				PRODUCT_NAME = SwiftyTimer;
+				PROVISIONING_PROFILE_SPECIFIER = SwiftyTimerDevelopProfile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -497,7 +501,9 @@
 			baseConfigurationReference = 90D5D6CD3DF877C1E7D93EAF /* Pods-SwiftyTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5T84VHY5G4;
 				INFOPLIST_FILE = SwiftyTimer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -505,8 +511,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiamingzhou.SwiftyTimer;
 				PRODUCT_NAME = SwiftyTimer;
+				PROVISIONING_PROFILE_SPECIFIER = SwiftyTimerDevelopProfile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

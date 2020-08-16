@@ -24,9 +24,12 @@ class TimerCollectionViewController: UIViewController, SelectionMenuCollectionVi
     private let numberOfItemPerRow: CGFloat = 2
     private let cellInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     private let cellIdentifier = "ItemCell"
+    private var bgTaskPrimaryKey = "standardTask"
     private let creationViewIdentifier = "CreationViewController"
     private var cellWidth: CGFloat?
     private var initialized: Bool = false
+    private var timerStarted: Bool = false
+    private let realm = try! Realm()
     
     
     private let items = ItemManager.standard.retrieveItems()
@@ -93,13 +96,27 @@ class TimerCollectionViewController: UIViewController, SelectionMenuCollectionVi
         super.viewDidAppear(animated)
         
         //present notification vc if the app is being launched for the first time.
+        //Assume timer when app is restarted by phone due to memory reallocation.
         initialized = UserDefaults.standard.bool(forKey: "initialized")
+        timerStarted = UserDefaults.standard.bool(forKey: "timerStarted")
         if !initialized {
             //do nothing yet
             UserDefaults.standard.set(true, forKey: "initialized")
             if let notificationVC = storyboard?.instantiateViewController(identifier: "NotificationViewController") as? NotificationViewController {
                 notificationVC.modalPresentationStyle = .fullScreen
                 present(notificationVC, animated: true)
+            }
+        }
+        
+        if timerStarted {
+            let bgTask = realm.objects(BGTask.self)
+            if let TimerVC = storyboard?.instantiateViewController(withIdentifier: "TimerViewController") as? TimerViewController {
+                TimerVC.activity = bgTask[0].activity!
+                TimerVC.bgRemainingTime = bgTask[0].timeRemaining
+                TimerVC.task.timeCreated = bgTask[0].timeTaskCreated
+                TimerVC.notificationIdentifier = bgTask[0].notificationID
+                TimerVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(TimerVC, animated: true)
             }
         }
     }
@@ -112,7 +129,6 @@ class TimerCollectionViewController: UIViewController, SelectionMenuCollectionVi
             creationVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(creationVC, animated: true)
         }
-        
     }
 }
 

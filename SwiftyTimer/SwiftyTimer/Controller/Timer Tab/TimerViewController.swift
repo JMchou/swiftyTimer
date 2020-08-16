@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import UserNotifications
+import RealmSwift
 
 class TimerViewController: UIViewController {
     
@@ -22,10 +23,12 @@ class TimerViewController: UIViewController {
     private weak var timer: Timer?
     private var audioPlayer: AVAudioPlayer?
     private var remainingTime = 0
-    private var countDownDuration = 0
-    private var notificationIdentifier = ""
+    private var bgTaskPrimaryKey = "standardTask"
     private let itemManager = ItemManager.standard
     private var becameInactive = false
+    private let realm = try! Realm()
+    
+    private var number = 0
     
     private enum buttonImage {
         case StartButton
@@ -39,6 +42,8 @@ class TimerViewController: UIViewController {
     }
     
     var activity: Item?
+    var bgRemainingTime = 0
+    var notificationIdentifier = ""
     var task = Task(state: .notStarted, timeCreated: Date(timeIntervalSinceNow: 0))
     
     //MARK: - UI configurations
@@ -57,7 +62,18 @@ class TimerViewController: UIViewController {
             view.backgroundColor = UIColor(named: activity.color!)
             self.title = activity.name
             self.remainingTime = activity.duration
-            self.countDownDuration = activity.duration
+        }
+        
+        if UserDefaults.standard.bool(forKey: "timerStarted") {
+            UserDefaults.standard.set(false, forKey: "timerStarted")
+            leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RestartButton)"), for: .normal)
+            rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.PauseButton)"), for: .normal)
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
+            task.state = .ongoing
+            remainingTime = bgRemainingTime
+            resumeTime()
+        } else {
+            updateTimer()
         }
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(returnToHomePage))
@@ -69,9 +85,6 @@ class TimerViewController: UIViewController {
         //Register notification
         NotificationCenter.default.addObserver(self, selector: #selector(becomeInactive), name: UIScene.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(becomesActive), name: UIScene.didActivateNotification, object: nil)
-        
-        //Start a timer that increments every second
-        updateTimer()
     }
     
     @objc func returnToHomePage() {
@@ -184,6 +197,16 @@ extension TimerViewController {
             notificationIdentifier = UUID().uuidString
             task.resetTime()
             
+            UserDefaults.standard.set(true, forKey: "timerStarted")
+            
+            let bgTask = BGTask()
+            bgTask.BGTaskID = bgTaskPrimaryKey
+            bgTask.activity = self.activity
+            bgTask.timeRemaining = self.remainingTime
+            bgTask.timeTaskCreated = self.task.timeCreated
+            bgTask.notificationID = notificationIdentifier
+            saveBackgroundTask(task: bgTask)
+            
             let content = UNMutableNotificationContent()
             content.title = "Time's Up!"
             if let activity = activity {
@@ -209,13 +232,22 @@ extension TimerViewController {
         guard task.state == .ongoing else { return }
         guard becameInactive else { return }
         
+        //Cancel resume previous timer key
+        UserDefaults.standard.set(false, forKey: "timerStarted")
+        
         //cancel local notification
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationIdentifier])
         
+        resumeTime()
+        becameInactive = false
+    }
+    
+    func resumeTime() {
         let timeInterval = task.timeCreated.timeIntervalSinceNow
         let roundedTimeInterval = ceil(timeInterval)
         let intervalAsInt = Int(roundedTimeInterval) * -1
         
+        number = remainingTime
         if intervalAsInt <  remainingTime {
             self.remainingTime = remainingTime - intervalAsInt
             updateTimer()
@@ -227,7 +259,13 @@ extension TimerViewController {
             leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
             rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
         }
-        becameInactive = false
+    }
+    
+    func saveBackgroundTask(task: BGTask) {
+        //Save task when app goes into background
+        try! realm.write {
+            realm.add(task, update: .modified)
+        }
     }
 }
 
@@ -245,13 +283,6 @@ extension TimerViewController {
     }
     
     func updateTimer() {
-        if remainingTime == 0 && task.state != .completed {
-            playSound()
-            self.timer?.invalidate()
-            task.updateState(with: .completed)
-            leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
-            rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
-        }
         
         let hours = remainingTime / 3600
         let minutes = (remainingTime / 60) % 60
@@ -272,7 +303,18 @@ extension TimerViewController {
             countDown += "0\(seconds)"
         }
         
-        remainingTime -= 1
+        if remainingTime <= 0 && task.state != .completed {
+            playSound()
+            self.timer?.invalidate()
+            task.updateState(with: .completed)
+            leftButton.setBackgroundImage(UIImage(named: "\(buttonImage.RepeatButton)"), for: .normal)
+            rightButton.setBackgroundImage(UIImage(named: "\(buttonImage.MuteButton)"), for: .normal)
+        }
+        
+        if remainingTime > 0 {
+            remainingTime -= 1
+        }
+        
         countDownLabel.text = countDown
     }
     
